@@ -1,0 +1,96 @@
+image: docker:latest  # 【不用改】
+variables:
+  DEPARTMENT_CODE: bizcenter   # 组织机构【请替换】
+  APPLICATION_NAME: bizcenter-jmetertest  # 应用名【请替换】
+  SWR_GROUP: swr.cn-north-4.myhuaweicloud.com # 集群区域=北京四 【默认】
+  IMAGE_NAME: joymo-common/jmeter_slave  # 镜像名称 {部门}/{应用名}-{分支名}：{构建流水ID} 【不用改】
+  IMAGE_TAG: $CI_PIPELINE_ID  #【不用改】
+  NAMESPCE: jmeter  #【不用改】
+  JMX_DIR: jmeterjar  # jmeter压测脚本所在文件夹【请替换】 该文件夹下只有一个jmx文件，并且文件名要求文件夹名称一致。该文件夹下还可以放置脚本参数csv文件及jar文件
+
+cache:
+  paths:
+    - /
+stages:
+  - docker
+  - deploy
+  - jmeter
+
+slave-docker-build:
+  stage: docker
+  tags:
+    - big-log-dev1
+  image: docker:latest
+  script:
+    #    自定义jar包，需重新构建slave镜像
+    - if [ `ls ${JMX_DIR}/*.jar | wc -w` -gt 0 ] ; then printf "recreate slave images\n";
+      docker login -u cn-north-4@$docker_ak -p $docker_sk swr.cn-north-4.myhuaweicloud.com;
+      sed -i "s%JMX_DIR%${JMX_DIR}%g" Dockerfile;
+      cat Dockerfile;
+      docker build -t $IMAGE_NAME .;
+      docker tag $IMAGE_NAME $SWR_GROUP/$IMAGE_NAME:$IMAGE_TAG;
+      docker push $SWR_GROUP/$IMAGE_NAME:$IMAGE_TAG;
+      docker rmi $SWR_GROUP/$IMAGE_NAME:$IMAGE_TAG;
+      else printf "no need to recreate slave images\n";
+      fi
+  only:
+    - develop-1
+
+slave-deploy:
+  stage:
+    deploy
+  tags:
+    - big-log-dev1
+  image: swr.cn-north-4.myhuaweicloud.com/joymo-common/kubectl:latest  #【不用改】
+  script:
+    #    自定义jar包，需重新构建slave pods
+    - if [ `ls ${JMX_DIR}/*.jar | wc -w` -gt 0 ] ; then printf "recreate slave pods\n";
+      export APPLY_IMAGE=$SWR_GROUP/$IMAGE_NAME:$IMAGE_TAG;
+      sed -i "s%DOCKER_IMAGE%$APPLY_IMAGE%g" etc/jmeter_slaves_deploy.yaml;
+      cat etc/jmeter_slaves_deploy.yaml;
+      kubectl apply -f etc/jmeter_slaves_deploy.yaml --namespace=$NAMESPCE;
+      else printf "no need to recreate slave pods\n";
+      fi
+  only:
+    - develop-1
+
+test-run:
+  stage:
+    jmeter
+  tags:
+    - big-log-dev1
+  image: swr.cn-north-4.myhuaweicloud.com/joymo-common/kubectl:latest  #【不用改】
+  script:
+    - export MASTER_POD=($(kubectl get pod -n ${NAMESPCE} | grep jmeter-master | awk '{print $1}'))
+#    报告文件
+    - mv template.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv
+    - kubectl cp ${APPLICATION_NAME}-${JMX_DIR}-report.csv -n ${NAMESPCE} ${MASTER_POD}:/
+#    jmeter脚本文件
+    - mv ${JMX_DIR}/${JMX_DIR}.jmx ${JMX_DIR}/${APPLICATION_NAME}-${JMX_DIR}.jmx
+    - kubectl cp ${JMX_DIR}/${APPLICATION_NAME}-${JMX_DIR}.jmx -n ${NAMESPCE} ${MASTER_POD}:/
+#    csv参数文件
+    - if [ `ls ${JMX_DIR}/*.csv | wc -w` -gt 0 ] ; then printf "Get number of slaves\n";
+      slave_pods=($(kubectl get po -n ${NAMESPCE} | grep jmeter-slave | awk '{print $1}'));
+      slavesnum=${#slave_pods[@]};
+      slavedigits="${#slavesnum}";
+      printf "Number of slaves is %s\n" "${slavesnum}";
+      for csvfilefull in ${JMX_DIR}/*.csv;
+      do csvfile="${csvfilefull##*/}";
+      printf "Processing %s file..\n" "$csvfile";
+      j=0;
+      for i in $(seq -f "%0${slavedigits}g" 0 $((slavesnum-1)));
+      do printf "Copy %s to %s\n" "${csvfile}" "${slave_pods[j]}";
+      kubectl -n ${NAMESPCE} cp ${JMX_DIR}/${csvfile} ${slave_pods[j]}:/;
+      let j=j+1;
+      done;
+      done;
+      fi
+#    执行压测并获取压测报告
+    - if [ `kubectl exec -ti -n ${NAMESPCE} ${MASTER_POD} -- /bin/bash /load_test ${APPLICATION_NAME}-${JMX_DIR}.jmx ${APPLICATION_NAME}-${JMX_DIR}-report.csv | grep 'Engine is busy - please try later' | wc -w` -gt 0 ] ; then printf "Engine is busy - please try later\n"; exit 1;
+      else kubectl cp ${NAMESPCE}/${MASTER_POD}:${APPLICATION_NAME}-${JMX_DIR}-report.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv;
+      fi
+  artifacts:
+    paths:
+      - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
+  only:
+    - develop-1
