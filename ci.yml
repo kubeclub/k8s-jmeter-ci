@@ -17,8 +17,7 @@ stages:
   - jmeter
 
 slave-docker-build:
-  resource_groups: 
-    - slave-docker-build
+  resource_group: slave-docker-build
   stage: docker
   tags:
     - dev1-clu1-jmeter
@@ -39,8 +38,7 @@ slave-docker-build:
     - develop-1
 
 slave-deploy:
-  resource_groups:
-    - slave-deploy
+  resource_group: slave-deploy
   stage:
     deploy
   tags:
@@ -59,8 +57,7 @@ slave-deploy:
     - develop-1
 
 test-run:
-  resource_groups: 
-    - test-run
+  resource_groups: test-run slave-docker-build
   stage:
     jmeter
   tags:
