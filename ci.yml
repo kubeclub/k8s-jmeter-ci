@@ -19,7 +19,7 @@ stages:
 slave-docker-build:
   stage: docker
   tags:
-    - big-log-dev1
+    - dev1-clu1-jmeter
   image: docker:latest
   script:
     #    自定义jar包，需重新构建slave镜像
@@ -40,7 +40,7 @@ slave-deploy:
   stage:
     deploy
   tags:
-    - big-log-dev1
+    - dev1-clu1-jmeter
   image: swr.cn-north-4.myhuaweicloud.com/joymo-common/kubectl:latest  #【不用改】
   script:
     #    自定义jar包，需重新构建slave pods
@@ -58,7 +58,7 @@ test-run:
   stage:
     jmeter
   tags:
-    - big-log-dev1
+    - dev1-clu1-jmeter
   image: swr.cn-north-4.myhuaweicloud.com/joymo-common/kubectl:latest  #【不用改】
   script:
     - export MASTER_POD=($(kubectl get pod -n ${NAMESPCE} | grep jmeter-master | awk '{print $1}'))
