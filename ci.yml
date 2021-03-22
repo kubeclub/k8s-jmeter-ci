@@ -39,7 +39,7 @@ slave-docker-build:
     - develop-1
 
 slave-deploy:
-  resource_groups
+  resource_groups:
     - slave-deploy
   stage:
     deploy
