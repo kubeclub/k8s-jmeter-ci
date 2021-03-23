@@ -38,7 +38,7 @@ slave-docker-build:
     - develop-1
 
 slave-deploy:
-  resource_group: slave-deploy
+  resource_group: slave-docker-build
   stage:
     deploy
   tags:
@@ -57,7 +57,7 @@ slave-deploy:
     - develop-1
 
 test-run:
-  resource_groups: test-run slave-docker-build
+  resource_groups: slave-docker-build
   stage:
     jmeter
   tags:
