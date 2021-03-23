@@ -17,7 +17,6 @@ stages:
   - jmeter
 
 slave-docker-build:
-  parallel: 1
   resource_group: slave-docker-build
   stage: docker
   tags:
@@ -39,7 +38,6 @@ slave-docker-build:
     - develop-1
 
 slave-deploy:
-  parallel: 1
   resource_group: slave-deploy
   stage:
     deploy
@@ -59,7 +57,6 @@ slave-deploy:
     - develop-1
 
 test-run:
-  parallel: 1
   resource_group: test-run
   stage:
     jmeter
