@@ -57,7 +57,7 @@ slave-deploy:
     - develop-1
 
 test-run:
-  resource_groups: test-run slave-docker-build
+  resource_group: test-run
   stage:
     jmeter
   tags:
