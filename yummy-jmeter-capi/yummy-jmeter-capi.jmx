@@ -119,7 +119,7 @@
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">500</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">900</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -371,6 +371,11 @@
               <stringProp name="Argument.name">orderComplete</stringProp>
               <stringProp name="Argument.value">/market-capi/customer/order/complete</stringProp>
               <stringProp name="Argument.desc">取餐完成接口</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="sk1" elementType="Argument">
+              <stringProp name="Argument.name">sk1</stringProp>
+              <stringProp name="Argument.value">2F2DF0221DA84B58B22C7FA3516C0A2E</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -2174,6 +2179,179 @@ vars.put(&quot;sign&quot;,result);
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
             <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="payAmount" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">payAmount</stringProp>
+              <stringProp name="RegexExtractor.regex">payAmount&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建订单" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;deviceNo&quot;: &quot;WHJMrwNw1k/Fsa02JOFHFP3J3BqDNtlnAwDwPso0pEwI2Lde4w9NtfhqkHRR8iMRC5QQZDygxLeMcMON5NAKmeF9a6xyjfdstdCW1tldyDzmauSxIJm5Txg\u003d\u003d1487582755342&quot;,&#xd;
+	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+	&quot;longitude&quot;: 94.362348,&#xd;
+	&quot;latitude&quot;: 29.654693,&#xd;
+	&quot;dineWay&quot;: 1,&#xd;
+	&quot;takeType&quot;: 2,&#xd;
+	&quot;itemList&quot;: [{&#xd;
+		&quot;packageCode&quot;: &quot;PK0001&quot;,&#xd;
+		&quot;storeyDetailList&quot;: [{&#xd;
+			&quot;storeyId&quot;: &quot;1&quot;,&#xd;
+			&quot;skuList&quot;: [{&#xd;
+				&quot;spuCode&quot;: &quot;SP0009&quot;,&#xd;
+				&quot;skuCode&quot;: &quot;SP0009-00001&quot;,&#xd;
+				&quot;itemType&quot;: 0&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;storeyId&quot;: &quot;2&quot;,&#xd;
+			&quot;skuList&quot;: [{&#xd;
+				&quot;spuCode&quot;: &quot;SP0008&quot;,&#xd;
+				&quot;skuCode&quot;: &quot;SP0008-00001&quot;,&#xd;
+				&quot;itemType&quot;: 0&#xd;
+			}]&#xd;
+		}],&#xd;
+		&quot;quantity&quot;: 1,&#xd;
+		&quot;itemType&quot;: 1&#xd;
+	}, {&#xd;
+		&quot;spuCode&quot;: &quot;SP0009&quot;,&#xd;
+		&quot;skuCode&quot;: &quot;SP0009-00001&quot;,&#xd;
+		&quot;quantity&quot;: 1,&#xd;
+		&quot;itemType&quot;: 0&#xd;
+	}, {&#xd;
+		&quot;spuCode&quot;: &quot;SP0011&quot;,&#xd;
+		&quot;skuCode&quot;: &quot;SP0011-00001&quot;,&#xd;
+		&quot;quantity&quot;: 1,&#xd;
+		&quot;itemType&quot;: 0&#xd;
+	}, {&#xd;
+		&quot;spuCode&quot;: &quot;SP0010&quot;,&#xd;
+		&quot;skuCode&quot;: &quot;SP0010-00001&quot;,&#xd;
+		&quot;quantity&quot;: 1,&#xd;
+		&quot;itemType&quot;: 0&#xd;
+	}, {&#xd;
+		&quot;spuCode&quot;: &quot;SP0008&quot;,&#xd;
+		&quot;skuCode&quot;: &quot;SP0008-00001&quot;,&#xd;
+		&quot;quantity&quot;: 1,&#xd;
+		&quot;itemType&quot;: 0&#xd;
+	}],&#xd;
+	&quot;tablewareType&quot;: 1,&#xd;
+	&quot;remark&quot;: &quot;&quot;,&#xd;
+	&quot;ignoreDistance&quot;: true,&#xd;
+	&quot;ignoreBusy&quot;: true,&#xd;
+	&quot;payAmount&quot;: &quot;187.5&quot;,&#xd;
+	&quot;applyOrderSpuCodeList&quot;: [&#xd;
+		&quot;SP0008&quot;,&#xd;
+		&quot;SP0009&quot;,&#xd;
+		&quot;SP0010&quot;,&#xd;
+		&quot;SP0011&quot;&#xd;
+	]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${create}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="appKey" elementType="Header">
+                  <stringProp name="Header.name">appKey</stringProp>
+                  <stringProp name="Header.value">4B0832A569AB4382BA035833C6CD7FB8</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${sign}</stringProp>
+                </elementProp>
+                <elementProp name="timestamp" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="version" elementType="Header">
+                  <stringProp name="Header.name">version</stringProp>
+                  <stringProp name="Header.value">1.0.0</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">app-Version</stringProp>
+                  <stringProp name="Header.value">V1</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="51509">401</stringProp>
+                <stringProp name="51512">404</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">20</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import com.test.testMd5;
+//import org.apache.commons.codec.digest.DigestUtils;
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;create&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk&quot;);
+log.info(&quot;=========================================================&quot;);
+//log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+//log.info(result);
+vars.put(&quot;sign&quot;,result);
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="orderId" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">orderId</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.orderId</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="orderNo" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">orderNo</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.orderNo</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="busCode" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">busCode</stringProp>
+              <stringProp name="RegexExtractor.regex">busCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建订单" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -2232,7 +2410,9 @@ vars.put(&quot;sign&quot;,result);
 	&quot;remark&quot;: &quot;&quot;,&#xd;
 	&quot;ignoreDistance&quot;: true,&#xd;
 	&quot;ignoreBusy&quot;: true,&#xd;
-	&quot;payAmount&quot;: &quot;187.5&quot;,&#xd;
+    &quot;payAmount&quot;: &quot;${payAmount}&quot;,&#xd;
+    &quot;couponNo&quot;: &quot;${couponNo}&quot;,&#xd;
+    &quot;discountPrice&quot;: &quot;${couponDiscountAmount}&quot;,&#xd;
 	&quot;applyOrderSpuCodeList&quot;: [&#xd;
 		&quot;SP0008&quot;,&#xd;
 		&quot;SP0009&quot;,&#xd;
@@ -2779,7 +2959,7 @@ vars.put(&quot;sign&quot;,result);
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取取消订单原因" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取取消订单原因" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2857,7 +3037,7 @@ vars.put(&quot;sign&quot;,result);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="取消订单" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="取消订单" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -2934,6 +3114,320 @@ vars.put(&quot;sign&quot;,result);
 //import org.apache.commons.codec.digest.DigestUtils;
 vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
 sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;orderCancel&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk&quot;);
+log.info(&quot;=========================================================&quot;);
+//log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+//log.info(result);
+vars.put(&quot;sign&quot;,result);
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="订单制作列表" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+    &quot;makeStatus&quot;: 1,&#xd;
+    &quot;eatType&quot;: &quot;${dineWay}&quot;,&#xd;
+    &quot;pageSize&quot;: 20,&#xd;
+    &quot;curPage&quot;: 1&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">${itemOrderList}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="appKey" elementType="Header">
+                    <stringProp name="Header.name">appKey</stringProp>
+                    <stringProp name="Header.value">F23CE7B2A9F8427A81E14ACCA2BD867B</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${sign}</stringProp>
+                  </elementProp>
+                  <elementProp name="timestamp" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
+                  </elementProp>
+                  <elementProp name="version" elementType="Header">
+                    <stringProp name="Header.name">version</stringProp>
+                    <stringProp name="Header.value">1.0.0</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">app-Version</stringProp>
+                    <stringProp name="Header.value">V1</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="51509">401</stringProp>
+                  <stringProp name="51512">404</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">20</intProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import com.test.testMd5;
+//import org.apache.commons.codec.digest.DigestUtils;
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;itemOrderList&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk1&quot;);
+log.info(&quot;=========================================================&quot;);
+//log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+//log.info(result);
+vars.put(&quot;sign&quot;,result);
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="makeOrderNo" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">makeOrderNo</stringProp>
+                <stringProp name="RegexExtractor.regex">makeOrderNo&quot;:&quot;((\d{16}-\d{1}))&quot;</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default"></stringProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                <stringProp name="ConstantTimer.delay">31000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+              <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="shopMdCode" enabled="false">
+                <stringProp name="filename">D:/jmeter/yummy/yummy_V2/shopMdCode.csv</stringProp>
+                <stringProp name="fileEncoding"></stringProp>
+                <stringProp name="variableNames">shopMdCode</stringProp>
+                <boolProp name="ignoreFirstLine">false</boolProp>
+                <stringProp name="delimiter">,</stringProp>
+                <boolProp name="quotedData">false</boolProp>
+                <boolProp name="recycle">true</boolProp>
+                <boolProp name="stopThread">false</boolProp>
+                <stringProp name="shareMode">shareMode.all</stringProp>
+              </CSVDataSet>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
+              <stringProp name="ForeachController.inputVal">makeOrderNo</stringProp>
+              <stringProp name="ForeachController.returnVal">makeOrderItemNo</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+            </ForeachController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="制作完成" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+    &quot;makeOrderItemNo&quot;: &quot;${makeOrderItemNo}&quot;,&#xd;
+    &quot;operateEmp&quot;: 999,&#xd;
+    &quot;operateEmpName&quot;: &quot;压测人员&quot;&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+                <stringProp name="HTTPSampler.port">443</stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                <stringProp name="HTTPSampler.path">${itemComplete}</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="appKey" elementType="Header">
+                      <stringProp name="Header.name">appKey</stringProp>
+                      <stringProp name="Header.value">F23CE7B2A9F8427A81E14ACCA2BD867B</stringProp>
+                    </elementProp>
+                    <elementProp name="sign" elementType="Header">
+                      <stringProp name="Header.name">sign</stringProp>
+                      <stringProp name="Header.value">${sign}</stringProp>
+                    </elementProp>
+                    <elementProp name="timestamp" elementType="Header">
+                      <stringProp name="Header.name">timestamp</stringProp>
+                      <stringProp name="Header.value">${timestamp}</stringProp>
+                    </elementProp>
+                    <elementProp name="version" elementType="Header">
+                      <stringProp name="Header.name">version</stringProp>
+                      <stringProp name="Header.value">1.0.0</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">app-Version</stringProp>
+                      <stringProp name="Header.value">V1</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="51509">401</stringProp>
+                    <stringProp name="51512">404</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">20</intProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序" enabled="true">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">import com.test.testMd5;
+//import org.apache.commons.codec.digest.DigestUtils;
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;itemComplete&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk1&quot;);
+log.info(&quot;=========================================================&quot;);
+//log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+//log.info(result);
+vars.put(&quot;sign&quot;,result);
+</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="shopMdCode" enabled="true">
+                  <stringProp name="filename">D:/jmeter/yummy/yummy_V2/shopMdCode.csv</stringProp>
+                  <stringProp name="fileEncoding"></stringProp>
+                  <stringProp name="variableNames">shopMdCode</stringProp>
+                  <boolProp name="ignoreFirstLine">false</boolProp>
+                  <stringProp name="delimiter">,</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="shareMode">shareMode.all</stringProp>
+                </CSVDataSet>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="取餐完成接口" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="orderId" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${orderId}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">orderId</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">${orderComplete}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="appKey" elementType="Header">
+                    <stringProp name="Header.name">appKey</stringProp>
+                    <stringProp name="Header.value">4B0832A569AB4382BA035833C6CD7FB8</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${sign}</stringProp>
+                  </elementProp>
+                  <elementProp name="timestamp" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
+                  </elementProp>
+                  <elementProp name="version" elementType="Header">
+                    <stringProp name="Header.name">version</stringProp>
+                    <stringProp name="Header.value">1.0.0</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">app-Version</stringProp>
+                    <stringProp name="Header.value">V1</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="51509">401</stringProp>
+                  <stringProp name="51512">404</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">20</intProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import com.test.testMd5;
+//import org.apache.commons.codec.digest.DigestUtils;
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;orderComplete&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk&quot;);
 log.info(&quot;=========================================================&quot;);
 //log.info(sign_con);
 
