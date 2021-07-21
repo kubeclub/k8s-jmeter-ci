@@ -461,7 +461,7 @@ vars.put(&quot;sign&quot;,result);
             <hashTree/>
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="mobile" enabled="true">
               <stringProp name="TestPlan.comments">111号段500用户</stringProp>
-              <stringProp name="filename">D:/jmeter/yummy/yummy_V2/pre/mobile.csv</stringProp>
+              <stringProp name="filename">/mobile.csv</stringProp>
               <stringProp name="fileEncoding"></stringProp>
               <stringProp name="variableNames">mobile</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
