@@ -469,7 +469,7 @@ vars.put(&quot;sign&quot;,result);
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">false</boolProp>
               <boolProp name="stopThread">true</boolProp>
-              <stringProp name="shareMode">shareMode.all</stringProp>
+              <stringProp name="shareMode">shareMode.thread</stringProp>
             </CSVDataSet>
             <hashTree/>
           </hashTree>
