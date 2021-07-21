@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository>/data/.m2/repository</localRepository>
+  <pluginGroups>
+
+  </pluginGroups>
+
+
+  <proxies>
+
+  </proxies>
+
+
+  <servers>
+     <server>
+      <id>maven-releases</id>
+      <username>deployment</username>
+      <password>deployment</password>
+    </server>
+    <server>
+      <id>maven-snapshots</id>
+      <username>deployment</username>
+      <password>deployment</password>
+    </server>
+  </servers>
+
+
+  <mirrors>
+
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <name>nexus repository for all Mirror.</name>
+      <url>http://maven.yummy.tech/repository/maven-public</url>
+    </mirror>
+    
+  </mirrors>
+  
+
+  <profiles>
+
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+    
+    <profile>  
+      <id>jdk-8</id>  
+      <activation>  
+          <activeByDefault>true</activeByDefault>  
+          <jdk>1.8</jdk>  
+      </activation>  
+      <properties>  
+          <maven.compiler.source>8</maven.compiler.source>  
+          <maven.compiler.target>8</maven.compiler.target>  
+          <maven.compiler.compilerVersion>8</maven.compiler.compilerVersion>  
+      </properties>  
+    </profile>  
+
+
+  </profiles>
+
+
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles> 
+</settings>
