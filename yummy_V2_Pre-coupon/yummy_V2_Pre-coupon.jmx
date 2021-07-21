@@ -106,7 +106,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">150</stringProp>
+        <stringProp name="ThreadGroup.num_threads">200</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">600</stringProp>
@@ -469,7 +469,7 @@ vars.put(&quot;sign&quot;,result);
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">false</boolProp>
               <boolProp name="stopThread">true</boolProp>
-              <stringProp name="shareMode">shareMode.thread</stringProp>
+              <stringProp name="shareMode">shareMode.all</stringProp>
             </CSVDataSet>
             <hashTree/>
           </hashTree>
@@ -618,7 +618,7 @@ vars.put(&quot;sign&quot;,result);
             <hashTree/>
           </hashTree>
         </hashTree>
-        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="后端监听器" enabled="true">
+        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="后端监听器" enabled="false">
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="influxdbMetricsSender" elementType="Argument">
