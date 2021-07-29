@@ -4453,7 +4453,7 @@ vars.put(&quot;sign&quot;,result);
             <collectionProp name="Arguments.arguments">
               <elementProp name="packageCode" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${packageCode}</stringProp>
+                <stringProp name="Argument.value">PK0011</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">packageCode</stringProp>
@@ -4548,7 +4548,7 @@ vars.put(&quot;sign&quot;,result);
 </stringProp>
           </BeanShellPreProcessor>
           <hashTree/>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="packageCode" enabled="true">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="packageCode" enabled="false">
             <stringProp name="filename">/packageCode.csv</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="variableNames">packageCode</stringProp>
