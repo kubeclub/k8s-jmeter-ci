@@ -365,16 +365,26 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="数据字典" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="定位城市" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;latitude&quot;: &quot;39.9862383355${__Random(1000,9999)}&quot;,&#xd;
+    &quot;longitude&quot;: &quot;116.481270887${__Random(1000,9999)}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-          <stringProp name="HTTPSampler.path">${dict}</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <stringProp name="HTTPSampler.path">${location}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -431,9 +441,9 @@
             <stringProp name="script">import com.test.testMd5;
 //import org.apache.commons.codec.digest.DigestUtils;
 vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
-sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;dict&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk&quot;);
-//log.info(&quot;=========================================================&quot;);
-log.info(sign_con);
+sign_con = vars.get(&quot;path&quot;)+vars.get(&quot;location&quot;)+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;sk&quot;);
+log.info(&quot;=========================================================&quot;);
+//log.info(sign_con);
 
 testMd5 tMd5 = new testMd5();
 String result = tMd5.md5Capital(sign_con);
@@ -458,7 +468,7 @@ vars.put(&quot;sign&quot;,result);
               </elementProp>
               <elementProp name="application" elementType="Argument">
                 <stringProp name="Argument.name">application</stringProp>
-                <stringProp name="Argument.value">数据字典</stringProp>
+                <stringProp name="Argument.value">定位城市</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="measurement" elementType="Argument">
@@ -483,7 +493,7 @@ vars.put(&quot;sign&quot;,result);
               </elementProp>
               <elementProp name="testTitle" elementType="Argument">
                 <stringProp name="Argument.name">testTitle</stringProp>
-                <stringProp name="Argument.value">数据字典</stringProp>
+                <stringProp name="Argument.value">定位城市</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="eventTags" elementType="Argument">

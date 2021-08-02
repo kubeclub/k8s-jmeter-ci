@@ -6,7 +6,7 @@ variables:
   IMAGE_NAME: joymo-common/jmeter_slave  # 镜像名称 {部门}/{应用名}-{分支名}：{构建流水ID} 【不用改】
   IMAGE_TAG: $CI_PIPELINE_ID  #【不用改】
   NAMESPCE: jmeter  #【不用改】
-  JMX_DIR: yummy_V2_Prod-dict  # jmeter压测脚本所在文件夹【请替换】 该文件夹下只有一个jmx文件，并且文件名要求文件夹名称一致。该文件夹下还可以放置脚本参数csv文件及jar文件
+  JMX_DIR: yummy_V2_Prod-location  # jmeter压测脚本所在文件夹【请替换】 该文件夹下只有一个jmx文件，并且文件名要求文件夹名称一致。该文件夹下还可以放置脚本参数csv文件及jar文件
 
 cache:
   paths:
