@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="yummy_V2_Pre" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="yummy_V2_Prod" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
@@ -9,7 +9,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">D:\jmeter\yummy\yummy_V2\pre\testMd5.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath">\testMd5.jar,D:\jmeter\yummy\yummy_V2\prod\testMd5.jar</stringProp>
     </TestPlan>
     <hashTree>
       <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
@@ -59,7 +59,7 @@
         <collectionProp name="HeaderManager.headers">
           <elementProp name="appKey" elementType="Header">
             <stringProp name="Header.name">appKey</stringProp>
-            <stringProp name="Header.value">B40AE2C7F5D74EEAA7E0C2B9E0CB486E</stringProp>
+            <stringProp name="Header.value">4B0832A569AB4382BA035833C6CD7FB8</stringProp>
           </elementProp>
           <elementProp name="sign" elementType="Header">
             <stringProp name="Header.name">sign</stringProp>
@@ -83,7 +83,7 @@
           </elementProp>
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">gateway</stringProp>
-            <stringProp name="Header.value">gatewaypre.abite.com</stringProp>
+            <stringProp name="Header.value">gateway.abite.com</stringProp>
           </elementProp>
         </collectionProp>
       </HeaderManager>
@@ -94,8 +94,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">250</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">25</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">600</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -108,7 +108,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="gateway" elementType="Argument">
               <stringProp name="Argument.name">gateway</stringProp>
-              <stringProp name="Argument.value">gatewaypre.abite.com</stringProp>
+              <stringProp name="Argument.value">gateway.abite.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="version" elementType="Argument">
@@ -118,7 +118,7 @@
             </elementProp>
             <elementProp name="sk" elementType="Argument">
               <stringProp name="Argument.name">sk</stringProp>
-              <stringProp name="Argument.value">A02857EAC9F34B4DB27B4BD87D3474B6</stringProp>
+              <stringProp name="Argument.value">2AED3785C37C429E93AC89F9B2FBD5E8</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="timestamp1" elementType="Argument">
@@ -388,7 +388,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="appKey" elementType="Header">
                 <stringProp name="Header.name">appKey</stringProp>
-                <stringProp name="Header.value">B40AE2C7F5D74EEAA7E0C2B9E0CB486E</stringProp>
+                <stringProp name="Header.value">4B0832A569AB4382BA035833C6CD7FB8</stringProp>
               </elementProp>
               <elementProp name="sign" elementType="Header">
                 <stringProp name="Header.name">sign</stringProp>
@@ -412,6 +412,17 @@
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51509">401</stringProp>
+              <stringProp name="51512">404</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">20</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
           <hashTree/>
           <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序" enabled="true">
             <boolProp name="resetInterpreter">false</boolProp>

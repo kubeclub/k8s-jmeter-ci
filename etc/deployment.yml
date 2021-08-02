@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yummy_V2_Pre-coupon # 改成自己的服务名
+  name: yummy_V2_Prod # 改成自己的服务名
   labels:
-    app: yummy_V2_Pre-coupon  # 改成自己的服务名
+    app: yummy_V2_Prod  # 改成自己的服务名
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: yummy_V2_Pre-coupon  # 改成自己的服务名
+      app: yummy_V2_Prod  # 改成自己的服务名
   template:
     metadata:
       labels:
-        app: yummy_V2_Pre-coupon # 改成自己的服务名
+        app: yummy_V2_Prod # 改成自己的服务名
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - name: yummy_V2_Pre-coupon   # 改成自己的服务名
+        - name: yummy_V2_Prod   # 改成自己的服务名
           #image: swr.cn-north-4.myhuaweicloud.com/mod-devops/hello-spring-develop   # 替换成自己的镜像
           image: DOCKER_IMAGE # 占位符，ci 脚本 sed 会动态替换
           imagePullPolicy: "Always" # 强制更新镜像
