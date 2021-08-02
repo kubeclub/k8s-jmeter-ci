@@ -6,7 +6,7 @@ variables:
   IMAGE_NAME: joymo-common/jmeter_slave  # 镜像名称 {部门}/{应用名}-{分支名}：{构建流水ID} 【不用改】
   IMAGE_TAG: $CI_PIPELINE_ID  #【不用改】
   NAMESPCE: jmeter  #【不用改】
-  JMX_DIR: yummy_V2_Prod-location  # jmeter压测脚本所在文件夹【请替换】 该文件夹下只有一个jmx文件，并且文件名要求文件夹名称一致。该文件夹下还可以放置脚本参数csv文件及jar文件
+  JMX_DIR: yummy_V2_Prod-cartInfo  # jmeter压测脚本所在文件夹【请替换】 该文件夹下只有一个jmx文件，并且文件名要求文件夹名称一致。该文件夹下还可以放置脚本参数csv文件及jar文件
 
 cache:
   paths:
@@ -21,7 +21,7 @@ slave-docker-build:
   stage: docker
   tags:
     - dev1-clu1-jmeter
-  image: docker:latest
+  image: swr.cn-north-4.myhuaweicloud.com/joymo-common/docker:latest
   script:
     #    自定义jar包，需重新构建slave镜像
     - if [ `ls ${JMX_DIR}/*.jar | wc -w` -gt 0 ] ; then printf "recreate slave images\n";
@@ -36,6 +36,7 @@ slave-docker-build:
       fi
   only:
     - develop-1
+    - slave-independent-data
 
 slave-deploy:
   resource_group: slave-deploy
@@ -55,6 +56,7 @@ slave-deploy:
       fi
   only:
     - develop-1
+    - slave-independent-data
 
 test-run:
   resource_group: test-run
@@ -97,3 +99,60 @@ test-run:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
   only:
     - develop-1
+
+
+slave-run:
+  resource_group: test-run
+  stage:
+    jmeter
+  tags:
+    - dev1-clu1-jmeter
+  image: swr.cn-north-4.myhuaweicloud.com/joymo-common/kubectl:latest  #【不用改】
+  script:
+    - export MASTER_POD=($(kubectl get pod -n ${NAMESPCE} | grep jmeter-master | awk '{print $1}'))
+#    报告文件
+    - mv template.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv
+    - kubectl cp ${APPLICATION_NAME}-${JMX_DIR}-report.csv -n ${NAMESPCE} ${MASTER_POD}:/
+#    jmeter脚本文件
+    - mv ${JMX_DIR}/${JMX_DIR}.jmx ${JMX_DIR}/${APPLICATION_NAME}-${JMX_DIR}.jmx
+    - kubectl cp ${JMX_DIR}/${APPLICATION_NAME}-${JMX_DIR}.jmx -n ${NAMESPCE} ${MASTER_POD}:/
+#    获取 slave pod 列表
+    - slave_pods=($(kubectl get po -n ${NAMESPCE} | grep jmeter-slave | awk '{print $1}'));
+      slavesnum=${#slave_pods[@]};
+      slavedigits="${#slavesnum}";
+      printf "Number of slaves is %s\n" "${slavesnum}";
+    # 公共 csv
+    - for csvfilefull in ${JMX_DIR}/*.csv;
+      do csvfile="${csvfilefull##*/}";
+      printf "Processing %s file..\n" "$csvfile";
+      j=0;
+      for i in $(seq -f "%0${slavedigits}g" 0 $((slavesnum-1)));
+      do printf "Copy %s to %s\n" "${csvfile}" "${slave_pods[j]}";
+      kubectl -n ${NAMESPCE} cp ${JMX_DIR}/${csvfile} ${slave_pods[j]}:/;
+      let j=j+1;
+      done;
+      done;
+    # 数据切割的 csv
+    # - printf "Copy %s to %s\n" "${JMX_DIR}/slave0/mobile.csv" "${slave_pods[0]} \n";
+    #   kubectl -n ${NAMESPCE} cp ${JMX_DIR}/slave0/mobile.csv ${slave_pods[0]}:/;
+    #   printf "Copy %s to %s\n" "${JMX_DIR}/slave1/mobile.csv" "${slave_pods[1]} \n";
+    #   kubectl -n ${NAMESPCE} cp ${JMX_DIR}/slave1/mobile.csv ${slave_pods[1]}:/;
+    - for i in $(seq 0 1);
+      do printf "slave=${slave_pods[i]}";
+      for csvfilefull in ${JMX_DIR}/slave${i}/*.csv;
+      do csvfile="${csvfilefull##*/}";
+      printf "Processing %s file..\n" "slave${i}/$csvfile";
+      printf "Copy %s to %s\n" "${csvfile}" "${slave_pods[i]}";
+      kubectl -n ${NAMESPCE} cp ${JMX_DIR}/slave${i}/${csvfile} ${slave_pods[i]}:/;
+      done;
+      done;
+
+   # 执行压测并获取压测报告
+    - if [ `kubectl exec -ti -n ${NAMESPCE} ${MASTER_POD} -- /bin/bash /load_test ${APPLICATION_NAME}-${JMX_DIR}.jmx ${APPLICATION_NAME}-${JMX_DIR}-report.csv | grep 'Engine is busy - please try later' | wc -w` -gt 0 ] ; then printf "Engine is busy - please try later\n"; exit 1;
+      else kubectl cp ${NAMESPCE}/${MASTER_POD}:${APPLICATION_NAME}-${JMX_DIR}-report.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv;
+      fi
+  artifacts:
+    paths:
+      - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
+  only:
+    - slave-independent-data
