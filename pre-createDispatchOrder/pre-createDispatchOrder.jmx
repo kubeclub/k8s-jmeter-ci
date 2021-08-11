@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="yummy_dubbo" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+    </TestPlan>
+    <hashTree>
+      <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="常数吞吐量定时器" enabled="false">
+        <intProp name="calcMode">1</intProp>
+        <doubleProp>
+          <name>throughput</name>
+          <value>12000.0</value>
+          <savedValue>0.0</savedValue>
+        </doubleProp>
+      </ConstantThroughputTimer>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">api-version</stringProp>
+            <stringProp name="Header.value">v1</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Connection</stringProp>
+            <stringProp name="Header.value">keep-alive</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">*/*</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="高斯随机定时器" enabled="false">
+        <stringProp name="ConstantTimer.delay">200</stringProp>
+        <stringProp name="RandomTimer.range">100.0</stringProp>
+      </GaussianRandomTimer>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="dispatch-service" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">2</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">600</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="createDispatchOrder" enabled="true">
+          <stringProp name="TestPlan.comments">创建配送单</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS">zk1pre.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1pre.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">tech.yummy.oscs.dispatch.client.dubbo.DispatchFacade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">createDispatchOrder</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">CreateDispatchOrderParam</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{way=1, amount=300, orderId=6995079318433497089, channelOrderNo=null, orderAppointmentType=1, expectedTime=Wed Aug 11 16:35:00 GMT+08:00 2021, orderOrigin=104, orderPayableAmount=400, supplement=1, supplementReason=null, mealCode=C191, shopMdCode=20300000207, shopName=V3效果配图验收, brandMdCode=20200000001, brandName=趣小面(实验), cityMdCode=110100, cityName=北京市, distributorType=null, dispatchRule=null, shopPhone=null, serviceNumbers=null, receiverName=秘密, receiverAddress=三元桥[地铁站]16.1, receiverCity=北京市, receiverPhone=19862433965, receiverLng=116.45699310302734, receiverLat=39.96149826049805, distance=1049, reassigned=null, reassignedType=null, shippingAddress=北京市北京市朝阳区广顺南大街16号东煌大厦17层WeWork(东煌大厦), shippingCity=北京市, invoiceTitle=null, productUnit=ProductUnit(productPackage=[], product=[Product(skuCode=SP0069-00001, skuName=标准, skuNameShow=-, productName=单品测试, productNameShow=单品测试, quantity=5, originPrice=1.1), Product(skuCode=SP0029-00005, skuName=标准/红汤, skuNameShow=红汤, productName=大块牛腩面, productNameShow=软嫩牛腩面, quantity=1, originPrice=32.0)]), dinerRemark=, dinerCoordinateType=2, memberNo=42949672980, orderNo=6995079318433497089, thirdDispatchOrderNo=null, retryStrategy=null, dispatchOrderNo=null}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
