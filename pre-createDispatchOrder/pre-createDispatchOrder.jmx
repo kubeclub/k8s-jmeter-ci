@@ -88,11 +88,11 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">50</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">600</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
@@ -126,8 +126,40 @@
           <stringProp name="FIELD_DUBBO_METHOD">createDispatchOrder</stringProp>
           <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
           <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
-          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">CreateDispatchOrderParam</stringProp>
-          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{way=1, amount=300, orderId=6995079318433497089, channelOrderNo=null, orderAppointmentType=1, expectedTime=Wed Aug 11 16:35:00 GMT+08:00 2021, orderOrigin=104, orderPayableAmount=400, supplement=1, supplementReason=null, mealCode=C191, shopMdCode=20300000207, shopName=V3效果配图验收, brandMdCode=20200000001, brandName=趣小面(实验), cityMdCode=110100, cityName=北京市, distributorType=null, dispatchRule=null, shopPhone=null, serviceNumbers=null, receiverName=秘密, receiverAddress=三元桥[地铁站]16.1, receiverCity=北京市, receiverPhone=19862433965, receiverLng=116.45699310302734, receiverLat=39.96149826049805, distance=1049, reassigned=null, reassignedType=null, shippingAddress=北京市北京市朝阳区广顺南大街16号东煌大厦17层WeWork(东煌大厦), shippingCity=北京市, invoiceTitle=null, productUnit=ProductUnit(productPackage=[], product=[Product(skuCode=SP0069-00001, skuName=标准, skuNameShow=-, productName=单品测试, productNameShow=单品测试, quantity=5, originPrice=1.1), Product(skuCode=SP0029-00005, skuName=标准/红汤, skuNameShow=红汤, productName=大块牛腩面, productNameShow=软嫩牛腩面, quantity=1, originPrice=32.0)]), dinerRemark=, dinerCoordinateType=2, memberNo=42949672980, orderNo=6995079318433497089, thirdDispatchOrderNo=null, retryStrategy=null, dispatchOrderNo=null}</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">tech.yummy.oscs.dispatch.client.param.CreateDispatchOrderParam</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{ 	&quot;way&quot;: 1, 	&quot;amount&quot;: 100, 	&quot;orderId&quot;: &quot;80306173588406273&quot;, 	&quot;orderAppointmentType&quot;: 1, 	&quot;expectedTime&quot;: &quot;2021-08-12 03:03:00&quot;, 	&quot;orderOrigin&quot;: 104, 	&quot;orderPayableAmount&quot;: 690, 	&quot;supplement&quot;: 0, 	&quot;supplementReason&quot;: &quot;漏放/做餐品和配件&quot;, 	&quot;mealCode&quot;: &quot;C124&quot;, 	&quot;shopMdCode&quot;: 20300000127, 	&quot;shopName&quot;: &quot;新世界百货（望京）重庆小面店&quot;, 	&quot;brandMdCode&quot;: 20200000001, 	&quot;brandName&quot;: &quot;重庆小面&quot;, 	&quot;cityMdCode&quot;: 110100, 	&quot;cityName&quot;: &quot;北京市&quot;, 	&quot;receiverName&quot;: &quot;测试&quot;, 	&quot;receiverAddress&quot;: &quot;新世界百货(望京店)2&quot;, 	&quot;receiverCity&quot;: &quot;北京市&quot;, 	&quot;receiverPhone&quot;: &quot;13466856527&quot;, 	&quot;receiverLng&quot;: &quot;116.4810807441486&quot;, 	&quot;receiverLat&quot;: &quot;39.98584231372208&quot;, 	&quot;distance&quot;: 29, 	&quot;shippingAddress&quot;: &quot;北京市北京市朝阳区望京广顺南大街16号院新世界百货(望京店)&quot;, 	&quot;shippingCity&quot;: &quot;北京市&quot;, 	&quot;productUnit&quot;: { 		&quot;productPackage&quot;: [], 		&quot;product&quot;: [{ 			&quot;skuCode&quot;: &quot;SP0333-00001&quot;, 			&quot;skuName&quot;: &quot;标准/微辣V2&quot;, 			&quot;skuNameShow&quot;: &quot;标准/微辣V2&quot;, 			&quot;productName&quot;: &quot;V3凉皮&quot;, 			&quot;productNameShow&quot;: &quot;V3凉皮show&quot;, 			&quot;quantity&quot;: 1, 			&quot;originPrice&quot;: 12.02 		}] 	}, 	&quot;dinerRemark&quot;: &quot;&quot;, 	&quot;dinerCoordinateType&quot;: 2, 	&quot;memberNo&quot;: &quot;55847075715&quot;, 	&quot;orderNo&quot;: &quot;5020118597558272&quot; }</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="getDispatchOrderRuleInfo" enabled="true">
+          <stringProp name="TestPlan.comments">获取配送单平台配送规则信息</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS">zk1pre.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1pre.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">tech.yummy.oscs.dispatch.client.dubbo.DispatchQueryFacade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">getDispatchOrderRuleInfo</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">tech.yummy.oscs.dispatch.client.param.DispatchRuleParam</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{ 	&quot;shopMdCode&quot;: 20300000214, 	&quot;dinerCoordinateType&quot;: 2, 	&quot;dinerLongitude&quot;: 116.48106384277344, 	&quot;dinerLatitude&quot;: 39.986114501953125 }</stringProp>
         </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
         <hashTree/>
       </hashTree>
