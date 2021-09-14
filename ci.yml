@@ -46,6 +46,9 @@ slave-deploy:
     - dev1-clu1-jmeter
   image: swr.cn-north-4.myhuaweicloud.com/joymo-common/kubectl:latest  #【不用改】
   script:
+    # 重启 master
+    - kubectl scale deployment jmeter-master --replicas=0 --namespace=$NAMESPCE
+    - kubectl scale deployment jmeter-master --replicas=1 --namespace=$NAMESPCE
     #    自定义jar包，需重新构建slave pods
     - if [ `ls ${JMX_DIR}/*.jar | wc -w` -gt 0 ] ; then printf "recreate slave pods\n";
       export APPLY_IMAGE=$SWR_GROUP/$IMAGE_NAME:$IMAGE_TAG;
