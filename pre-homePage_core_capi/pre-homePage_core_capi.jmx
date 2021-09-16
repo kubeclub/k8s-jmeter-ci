@@ -166,7 +166,7 @@
       </Arguments>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV 数据文件设置" enabled="true">
-        <stringProp name="filename">D:/work/yummy/mobile.csv</stringProp>
+        <stringProp name="filename">/mobile.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">mobile</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
