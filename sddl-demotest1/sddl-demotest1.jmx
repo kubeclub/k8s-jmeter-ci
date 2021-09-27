@@ -14,14 +14,14 @@
     <hashTree>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="sddl-demotest1-redis" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.num_threads">500</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
         <stringProp name="Start users count">50</stringProp>
-        <stringProp name="Start users count burst">0</stringProp>
+        <stringProp name="Start users count burst">500</stringProp>
         <stringProp name="Start users period">20</stringProp>
-        <stringProp name="Stop users count">5</stringProp>
+        <stringProp name="Stop users count">50</stringProp>
         <stringProp name="Stop users period">1</stringProp>
-        <stringProp name="flighttime">200</stringProp>
+        <stringProp name="flighttime">180</stringProp>
         <stringProp name="rampUp">5</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -48,7 +48,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
