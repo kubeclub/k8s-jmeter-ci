@@ -20,10 +20,10 @@
       <hashTree/>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="sddl-demotest1-redis" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
         <stringProp name="Start users count">50</stringProp>
-        <stringProp name="Start users count burst">200</stringProp>
+        <stringProp name="Start users count burst">50</stringProp>
         <stringProp name="Start users period">20</stringProp>
         <stringProp name="Stop users count">50</stringProp>
         <stringProp name="Stop users period">1</stringProp>
@@ -418,10 +418,10 @@
       </hashTree>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="sddl-demotest1-redis1" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
         <stringProp name="Start users count">50</stringProp>
-        <stringProp name="Start users count burst">200</stringProp>
+        <stringProp name="Start users count burst">50</stringProp>
         <stringProp name="Start users period">20</stringProp>
         <stringProp name="Stop users count">50</stringProp>
         <stringProp name="Stop users period">1</stringProp>
@@ -626,10 +626,10 @@
       </hashTree>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="sddl-demotest1-redis2" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
         <stringProp name="Start users count">50</stringProp>
-        <stringProp name="Start users count burst">200</stringProp>
+        <stringProp name="Start users count burst">50</stringProp>
         <stringProp name="Start users period">20</stringProp>
         <stringProp name="Stop users count">50</stringProp>
         <stringProp name="Stop users period">1</stringProp>
@@ -834,10 +834,10 @@
       </hashTree>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="sddl-demotest1-redis3" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
         <stringProp name="Start users count">50</stringProp>
-        <stringProp name="Start users count burst">200</stringProp>
+        <stringProp name="Start users count burst">50</stringProp>
         <stringProp name="Start users period">20</stringProp>
         <stringProp name="Stop users count">50</stringProp>
         <stringProp name="Stop users period">1</stringProp>
