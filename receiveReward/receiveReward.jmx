@@ -118,7 +118,7 @@
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
-          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS">zk1.yummy.tech:5181,zk2.yummy.tech:5181,zk3.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS">zk1.yummy.tech:5181</stringProp>
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
           <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL"></stringProp>
           <stringProp name="FIELD_DUBBO_REGISTRY_GROUP"></stringProp>
@@ -185,7 +185,7 @@
             <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
             <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
             <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
-            <stringProp name="FIELD_DUBBO_ADDRESS">zk1.yummy.tech:5181,zk2.yummy.tech:5181,zk3.yummy.tech:5181</stringProp>
+            <stringProp name="FIELD_DUBBO_ADDRESS">zk1.yummy.tech:5181</stringProp>
             <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
             <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
             <stringProp name="FIELD_DUBBO_TIMEOUT">1000</stringProp>
