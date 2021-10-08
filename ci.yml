@@ -8,7 +8,6 @@ variables:
   NAMESPCE: jmeter  #【不用改】
   JMX_DIR: receiveReward # jmeter压测脚本所在文件夹【请替换】 该文件夹下只有一个jmx文件，并且文件名要求文件夹名称一致。该文件夹下还可以放置脚本参数csv文件及jar文件
 
-
 cache:
   paths:
     - /
@@ -137,6 +136,10 @@ slave-run:
       done;
       done;
     # 数据切割的 csv
+    # - printf "Copy %s to %s\n" "${JMX_DIR}/slave0/mobile.csv" "${slave_pods[0]} \n";
+    #   kubectl -n ${NAMESPCE} cp ${JMX_DIR}/slave0/mobile.csv ${slave_pods[0]}:/;
+    #   printf "Copy %s to %s\n" "${JMX_DIR}/slave1/mobile.csv" "${slave_pods[1]} \n";
+    #   kubectl -n ${NAMESPCE} cp ${JMX_DIR}/slave1/mobile.csv ${slave_pods[1]}:/;
     - for i in $(seq 0 1);
       do printf "slave=${slave_pods[i]}";
       for csvfilefull in ${JMX_DIR}/slave${i}/*.csv;
@@ -156,4 +159,3 @@ slave-run:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
   only:
     - slave-independent-data
-
