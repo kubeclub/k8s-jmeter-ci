@@ -49,7 +49,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -102,11 +102,11 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
+          <stringProp name="LoopController.loops">10</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">10</stringProp>
-        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration">100</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -118,7 +118,7 @@
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
-          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS">zk1.yummy.tech:5181</stringProp>
           <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
           <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL"></stringProp>
           <stringProp name="FIELD_DUBBO_REGISTRY_GROUP"></stringProp>
@@ -139,10 +139,10 @@
         <hashTree/>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="领奖接口" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </LoopController>
         <hashTree>
-          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="true">
+          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="false">
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
@@ -157,7 +157,7 @@
             <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
             <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
             <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
-            <stringProp name="FIELD_DUBBO_TIMEOUT">2000</stringProp>
+            <stringProp name="FIELD_DUBBO_TIMEOUT">30000</stringProp>
             <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
             <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
             <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
@@ -230,7 +230,7 @@
             </ResultCollector>
             <hashTree/>
           </hashTree>
-          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="false">
+          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="true">
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
@@ -258,7 +258,7 @@
             <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
             <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
             <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">tech.yummy.crm.marketing.activity.model.param.commonact.ReceiveRewardRequest</stringProp>
-            <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;mobile&quot;:&quot;${mobile}&quot;,&quot;activityNo&quot;:&quot;6283538229338112&quot;,memberSource=2}</stringProp>
+            <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;mobile&quot;:&quot;${mobile}&quot;,&quot;activityNo&quot;:&quot;6839128488329216&quot;,memberSource=2}</stringProp>
           </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
           <hashTree>
             <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="status" enabled="true">
