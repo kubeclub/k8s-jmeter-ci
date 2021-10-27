@@ -166,7 +166,7 @@ test-slave-docker-build:
 
 test-slave-deploy:
   <<: *slave-deploy
-  tag:
+  tags:
     - dev1-clu1-jmeter
   only:
     - develop-1
@@ -174,14 +174,14 @@ test-slave-deploy:
 
 test-jmeter-run:
   <<: *jmeter-run
-  tag:
+  tags:
     - dev1-clu1-jmeter
   only:
     - develop-1
 
 test-independent-data-run:
-  << *independent-data-run
-  tag:
+  <<: *independent-data-run
+  tags:
     - dev1-clu1-jmeter
   only:
     - develop-independent-data
@@ -201,7 +201,7 @@ prod-slave-docker-build:
 
 prod-slave-deploy:
   <<: *slave-deploy
-  tag:
+  tags:
     - prod
   only:
     - production
@@ -209,14 +209,14 @@ prod-slave-deploy:
 
 prod-jmeter-run:
   <<: *jmeter-run
-  tag:
+  tags:
     - prod
   only:
     - production
 
 prod-independent-data-run:
   <<: *independent-data-run
-  tag:
+  tags:
     - prod
   only:
     - production-independent-data
