@@ -16,7 +16,7 @@ stages:
   - deploy
   - jmeter
 
-slave-docker-build:
+.slave-docker-build: &slave-docker-build
   resource_group: slave-docker-build
   stage: docker
   tags:
@@ -34,11 +34,8 @@ slave-docker-build:
       docker rmi $SWR_GROUP/$IMAGE_NAME:$IMAGE_TAG;
       else printf "no need to recreate slave images\n";
       fi
-  only:
-    - develop-1
-    - slave-independent-data
 
-slave-deploy:
+.slave-deploy: &slave-deploy
   resource_group: slave-deploy
   stage:
     deploy
@@ -57,11 +54,8 @@ slave-deploy:
       kubectl apply -f etc/jmeter_slaves_deploy.yaml --namespace=$NAMESPCE;
       else printf "no need to recreate slave pods\n";
       fi
-  only:
-    - develop-1
-    - slave-independent-data
 
-test-run:
+.jmeter-run: &jmeter-run
   resource_group: test-run
   stage:
     jmeter
@@ -100,11 +94,9 @@ test-run:
   artifacts:
     paths:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
-  only:
-    - develop-1
 
 
-slave-run:
+.independent-data-run: &independent-data-run
   resource_group: test-run
   stage:
     jmeter
@@ -157,5 +149,74 @@ slave-run:
   artifacts:
     paths:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
+
+
+
+####################
+# 测试 环境压测
+####################
+test-slave-docker-build:
+  <<: *slave-docker-build
+  tags:
+    - dev1-clu1-jmeter
   only:
-    - slave-independent-data
+    - develop-1
+    - develop-independent-data
+
+
+test-slave-deploy:
+  <<: *slave-deploy
+  tag:
+    - dev1-clu1-jmeter
+  only:
+    - develop-1
+    - develop-independent-data
+
+test-jmeter-run:
+  <<: *jmeter-run
+  tag:
+    - dev1-clu1-jmeter
+  only:
+    - develop-1
+
+test-independent-data-run:
+  << *independent-data-run
+  tag:
+    - dev1-clu1-jmeter
+  only:
+    - develop-independent-data
+
+
+####################
+# 生产 环境压测
+####################
+prod-slave-docker-build:
+  <<: *slave-docker-build
+  tags:
+    - prod
+  only:
+    - production
+    - production-independent-data
+
+
+prod-slave-deploy:
+  <<: *slave-deploy
+  tag:
+    - prod
+  only:
+    - production
+    - production-independent-data
+
+prod-jmeter-run:
+  <<: *jmeter-run
+  tag:
+    - prod
+  only:
+    - production
+
+prod-independent-data-run:
+  <<: *independent-data-run
+  tag:
+    - prod
+  only:
+    - production-independent-data
