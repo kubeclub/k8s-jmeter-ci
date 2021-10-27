@@ -88,9 +88,9 @@ stages:
       done;
       fi
 #    执行压测并获取压测报告
-    - if [ `kubectl exec -ti -n ${NAMESPCE} ${MASTER_POD} -- /bin/bash /load_test ${APPLICATION_NAME}-${JMX_DIR}.jmx ${APPLICATION_NAME}-${JMX_DIR}-report.csv | grep 'Engine is busy - please try later' | wc -w` -gt 0 ] ; then printf "Engine is busy - please try later\n"; exit 1;
-      else kubectl cp ${NAMESPCE}/${MASTER_POD}:${APPLICATION_NAME}-${JMX_DIR}-report.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv;
-      fi
+    #- if [ `kubectl exec -ti -n ${NAMESPCE} ${MASTER_POD} -- /bin/bash /load_test ${APPLICATION_NAME}-${JMX_DIR}.jmx ${APPLICATION_NAME}-${JMX_DIR}-report.csv | grep 'Engine is busy - please try later' | wc -w` -gt 0 ] ; then printf "Engine is busy - please try later\n"; exit 1;
+    #  else kubectl cp ${NAMESPCE}/${MASTER_POD}:${APPLICATION_NAME}-${JMX_DIR}-report.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv;
+    #  fi
   artifacts:
     paths:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
@@ -143,9 +143,9 @@ stages:
       done;
 
    # 执行压测并获取压测报告
-    - if [ `kubectl exec -ti -n ${NAMESPCE} ${MASTER_POD} -- /bin/bash /load_test ${APPLICATION_NAME}-${JMX_DIR}.jmx ${APPLICATION_NAME}-${JMX_DIR}-report.csv | grep 'Engine is busy - please try later' | wc -w` -gt 0 ] ; then printf "Engine is busy - please try later\n"; exit 1;
-      else kubectl cp ${NAMESPCE}/${MASTER_POD}:${APPLICATION_NAME}-${JMX_DIR}-report.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv;
-      fi
+    #- if [ `kubectl exec -ti -n ${NAMESPCE} ${MASTER_POD} -- /bin/bash /load_test ${APPLICATION_NAME}-${JMX_DIR}.jmx ${APPLICATION_NAME}-${JMX_DIR}-report.csv | grep 'Engine is busy - please try later' | wc -w` -gt 0 ] ; then printf "Engine is busy - please try later\n"; exit 1;
+    #  else kubectl cp ${NAMESPCE}/${MASTER_POD}:${APPLICATION_NAME}-${JMX_DIR}-report.csv ${APPLICATION_NAME}-${JMX_DIR}-report.csv;
+    #  fi
   artifacts:
     paths:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
