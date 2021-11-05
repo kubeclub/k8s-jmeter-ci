@@ -102,12 +102,12 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">10</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">10</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration">100</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">600</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
@@ -137,12 +137,100 @@
           <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
         </ConfigTestElement>
         <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="false">
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">20000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">tech.yummy.crm.marketing.activity.facade.CommonActivityFacade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">receiveReward</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">tech.yummy.crm.marketing.activity.model.param.commonact.ReceiveRewardRequest</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;mobile&quot;:&quot;${mobile}&quot;,&quot;activityNo&quot;:&quot;6839128488329216&quot;,memberSource=2}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="status" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">status</stringProp>
+            <stringProp name="RegexExtractor.regex">status&quot;:&quot;(.*?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-720333059">&quot;status&quot;: 1</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">领取失败</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="断言结果" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="领奖接口" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </LoopController>
         <hashTree>
-          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="false">
+          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="true">
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
             <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
@@ -171,94 +259,6 @@
             <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
             <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">tech.yummy.crm.marketing.activity.model.param.commonact.ReceiveRewardRequest</stringProp>
             <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;mobile&quot;:&quot;${mobile}&quot;,&quot;activityNo&quot;:&quot;6573519395995648&quot;,memberSource=4}</stringProp>
-          </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
-          <hashTree>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="status" enabled="true">
-              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-              <stringProp name="RegexExtractor.refname">status</stringProp>
-              <stringProp name="RegexExtractor.regex">status&quot;:&quot;(.*?)&quot;</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
-              <stringProp name="RegexExtractor.default"></stringProp>
-              <stringProp name="RegexExtractor.match_number">1</stringProp>
-            </RegexExtractor>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-720333059">&quot;status&quot;: 1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message">领取失败</stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="断言结果" enabled="false">
-              <boolProp name="ResultCollector.error_logging">false</boolProp>
-              <objProp>
-                <name>saveConfig</name>
-                <value class="SampleSaveConfiguration">
-                  <time>true</time>
-                  <latency>true</latency>
-                  <timestamp>true</timestamp>
-                  <success>true</success>
-                  <label>true</label>
-                  <code>true</code>
-                  <message>true</message>
-                  <threadName>true</threadName>
-                  <dataType>true</dataType>
-                  <encoding>false</encoding>
-                  <assertions>true</assertions>
-                  <subresults>true</subresults>
-                  <responseData>false</responseData>
-                  <samplerData>false</samplerData>
-                  <xml>false</xml>
-                  <fieldNames>true</fieldNames>
-                  <responseHeaders>false</responseHeaders>
-                  <requestHeaders>false</requestHeaders>
-                  <responseDataOnError>false</responseDataOnError>
-                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                  <assertionsResultsToSave>0</assertionsResultsToSave>
-                  <bytes>true</bytes>
-                  <sentBytes>true</sentBytes>
-                  <url>true</url>
-                  <threadCounts>true</threadCounts>
-                  <idleTime>true</idleTime>
-                  <connectTime>true</connectTime>
-                </value>
-              </objProp>
-              <stringProp name="filename"></stringProp>
-            </ResultCollector>
-            <hashTree/>
-          </hashTree>
-          <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="领奖接口-receiveReward" enabled="true">
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
-            <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
-            <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
-            <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
-            <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
-            <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
-            <stringProp name="FIELD_DUBBO_ADDRESS">zk1.yummy.tech:5181</stringProp>
-            <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
-            <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
-            <stringProp name="FIELD_DUBBO_TIMEOUT">2000</stringProp>
-            <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
-            <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
-            <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
-            <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
-            <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
-            <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
-            <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
-            <stringProp name="FIELD_DUBBO_INTERFACE">tech.yummy.crm.marketing.activity.facade.CommonActivityFacade</stringProp>
-            <stringProp name="FIELD_DUBBO_METHOD">receiveReward</stringProp>
-            <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
-            <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
-            <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">tech.yummy.crm.marketing.activity.model.param.commonact.ReceiveRewardRequest</stringProp>
-            <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;mobile&quot;:&quot;${mobile}&quot;,&quot;activityNo&quot;:&quot;6839128488329216&quot;,memberSource=2}</stringProp>
           </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
           <hashTree>
             <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="status" enabled="true">
