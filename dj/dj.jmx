@@ -9,7 +9,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">F:\dj\jmeter\youzantest.jar,F:\dj\jmeter\open-sdk-api-1.0.6-RELEASE.jar,F:\dj\jmeter\open-sdk-common-1.0.6-RELEASE.jar,F:\dj\jmeter\open-sdk-core-1.0.6-RELEASE.jar,F:\dj\jmeter\open-sdk-gen-1.0.6.201911211916-RELEASE.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath">E:\youzantest\out\artifacts\youzantest_jar\youzantest.jar</stringProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="有赞接口P0" enabled="true">
@@ -18,10 +18,10 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">60</stringProp>
+        <stringProp name="ThreadGroup.duration">1</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
@@ -384,10 +384,12 @@ vars.put(&quot;token&quot;,result);</stringProp>
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="script">import com.dj.YouZanToken;
 
+log.info(&quot;执行beanShell开始-----------&quot;);
 YouZanToken yzTest = new YouZanToken();
 String result = yzTest.getToken();
-System.out.println(result);
-vars.put(&quot;token&quot;,result);</stringProp>
+log.info(result);
+vars.put(&quot;token&quot;,result);
+log.info(&quot;执行beanShell结束-----------&quot;);</stringProp>
           </BeanShellPreProcessor>
           <hashTree/>
           <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="调试后置处理程序" enabled="false">
@@ -397,7 +399,7 @@ vars.put(&quot;token&quot;,result);</stringProp>
             <boolProp name="displaySystemProperties">false</boolProp>
           </DebugPostProcessor>
           <hashTree/>
-          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="QPS超过300达到400" enabled="true">
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="QPS超过300达到400" enabled="false">
             <intProp name="calcMode">1</intProp>
             <doubleProp>
               <name>throughput</name>
@@ -2034,7 +2036,7 @@ vars.put(&quot;token&quot;,result);</stringProp>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -2108,7 +2110,7 @@ vars.put(&quot;token&quot;,result);</stringProp>
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="后端监听器" enabled="true">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="后端监听器" enabled="false">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="influxdbMetricsSender" elementType="Argument">
