@@ -103,7 +103,6 @@ test-run:
   only:
     - develop-1
 
-
 slave-run:
   resource_group: test-run
   stage:
