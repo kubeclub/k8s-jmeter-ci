@@ -16,7 +16,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - name: pre_fulfilment_v1   # 改成自己的服务名
+        - name: dj_V1_scenarioHome   # 改成自己的服务名
           #image: swr.cn-north-4.myhuaweicloud.com/mod-devops/hello-spring-develop   # 替换成自己的镜像
           image: DOCKER_IMAGE # 占位符，ci 脚本 sed 会动态替换
           imagePullPolicy: "Always" # 强制更新镜像
