@@ -1,0 +1,3299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="用户APP" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">E:\soft\apache-jmeter-3.2\lib\ext\appsign.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="用表格察看结果" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">apigw${env}.joymo.tech</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol">http</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="env" elementType="Argument">
+            <stringProp name="Argument.name">env</stringProp>
+            <stringProp name="Argument.value">test2</stringProp>
+            <stringProp name="Argument.desc">环境****</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">切换环境时，要修改带****字段</stringProp>
+      </Arguments>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">content-type</stringProp>
+            <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">api-version</stringProp>
+            <stringProp name="Header.value">v1</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">appKey</stringProp>
+            <stringProp name="Header.value">F9B27BB54810413F97F0B02DD3AFDE53</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="先锋版APP接口测试" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <longProp name="ThreadGroup.start_time">1616158500000</longProp>
+        <longProp name="ThreadGroup.end_time">1616158800000</longProp>
+      </ThreadGroup>
+      <hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="用户参数" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-1068855134">mobile</stringProp>
+            <stringProp name="3059181">code</stringProp>
+            <stringProp name="3532044">skey</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="840082282">
+              <stringProp name="-249253966">13051232306</stringProp>
+              <stringProp name="1066907820">e31985f9424ee428196a7786d02ee1fc303bf0afe9a305c33903e035608ad8675f6447e5aab363079d0b026cb51b0ac0</stringProp>
+              <stringProp name="189708181">EDD1596E1D2C444686A0C2BB2F3C56A0</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">true</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell 后置处理程序" enabled="true">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="script">prev.setDataEncoding(&quot;UTF-8&quot;);</stringProp>
+        </BeanShellPostProcessor>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="smsCode" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="mobile" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.value">${mobile}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">mobile</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">capi/customer/smsCode</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">发送验证码</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+newSignMap = TestSign.getSoulAppSignTest(&quot;4030F12A04CF46B7A031A981074FE24C&quot;,&quot;/capi/customer/smsCode&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="loginBySmsCode" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;mobile&quot;: &quot;${mobile}&quot;,&#xd;
+   &quot;smsCode&quot;: &quot;521045&quot;,&#xd;
+   &quot;deviceType&quot;: &quot;2&quot;,&#xd;
+   &quot;registrationId&quot;: &quot;1104a897920a5613f62&quot;,&#xd;
+   &quot;deviceNo&quot;: &quot;1104a897920a5613f62&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">capi/customer/loginBySmsCode</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">验证码登录</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/loginBySmsCode&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取Cookie-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+              <stringProp name="RegexExtractor.refname">SESSION</stringProp>
+              <stringProp name="RegexExtractor.regex">SESSION=(.+?);</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="全局存储Cookie" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">${__setProperty(SESSION,${SESSION})}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="false"/>
+        <hashTree>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="false">
+            <collectionProp name="CookieManager.cookies">
+              <elementProp name="SESSION" elementType="Cookie" testname="SESSION">
+                <stringProp name="Cookie.value">${__P(SESSION)}</stringProp>
+                <stringProp name="Cookie.domain">apigwtest2.joymo.tech</stringProp>
+                <stringProp name="Cookie.path">/</stringProp>
+                <boolProp name="Cookie.secure">false</boolProp>
+                <longProp name="Cookie.expires">0</longProp>
+                <boolProp name="Cookie.path_specified">true</boolProp>
+                <boolProp name="Cookie.domain_specified">true</boolProp>
+              </elementProp>
+            </collectionProp>
+            <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+            <stringProp name="CookieManager.policy">standard</stringProp>
+            <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+          </CookieManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="skulist" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;storeNo&quot;:&quot;${storeNo}&quot;,&#xd;
+  &quot;cabinNo&quot;: &quot;${cabinNo}&quot;,&#xd;
+  &quot;machineTypeCode&quot;: &quot;${machineTypeCode}&quot;,&#xd;
+  &quot;productCode&quot;: &quot;${productCode}&quot;,&#xd;
+  &quot;sceneType&quot;: 1,&#xd;
+  &quot;cityCode&quot;: &quot;${cityCode}&quot;,&#xd;
+  &quot;provinceCode&quot;: &quot;${provinceCode}&quot;,&#xd;
+  &quot;districtCode&quot;: &quot;${districtCode}&quot;,&#xd;
+  &quot;positionTypeId&quot;: 1,&#xd;
+  &quot;reservationDate&quot;: &quot;&quot;,&#xd;
+  &quot;currentOrderNo&quot;: &quot;&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/sku/list</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取商品</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/sku/list&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuCode</stringProp>
+              <stringProp name="RegexExtractor.regex">skuCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuName</stringProp>
+              <stringProp name="RegexExtractor.regex">skuName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuSalePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuSalePrice&quot;:(.*?),&quot;discountMoney</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuBasePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuBasePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuBasePrice&quot;:(.*?),&quot;skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取duration-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">duration</stringProp>
+              <stringProp name="RegexExtractor.regex">duration&quot;:(.*?),&quot;count</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取count-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">count</stringProp>
+              <stringProp name="RegexExtractor.regex">count&quot;:(.*?),&quot;countUnit</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createorder" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+          &quot;cabinNo&quot; : &quot;${cabinNo}&quot;,&#xd;
+          &quot;storeNo&quot; : &quot;${storeNo}&quot;,&#xd;
+          &quot;machineNo&quot; : &quot;${machineNo}&quot;,&#xd;
+          &quot;skuCode&quot; : &quot;${skuCode}&quot;,&#xd;
+          &quot;skuName&quot; : &quot;${skuName}&quot;,&#xd;
+          &quot;payFrom&quot; : 2,&#xd;
+          &quot;payableMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;payMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;duration&quot; : &quot;${duration}&quot;,&#xd;
+          &quot;buyAmount&quot; : &quot;${count}&quot;,&#xd;
+          &quot;machineTypeCode&quot; : &quot;${machineTypeCode}&quot;,&#xd;
+          &quot;machinePlanDesc&quot; : &quot;${machinePlanDesc}&quot;,&#xd;
+          &quot;positionTypeId&quot; : &quot;1&quot;,&#xd;
+          &quot;provinceCode&quot; : &quot;${provinceCode}&quot;,&#xd;
+          &quot;cityCode&quot; : &quot;${cityCode}&quot;,&#xd;
+          &quot;districtCode&quot; : &quot;${districtCode}&quot;,&#xd;
+          &quot;originMoney&quot; : &quot;${skuBasePrice}&quot;,&#xd;
+          &quot;programPrice&quot; : &quot;${skuBasePrice}&quot;&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/create/now</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">立即下单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/create/now&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取orderNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">orderNo</stringProp>
+              <stringProp name="RegexExtractor.regex">orderNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取payNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">payNo</stringProp>
+              <stringProp name="RegexExtractor.regex">payNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="wxpay" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+        &quot;orderNo&quot;: &quot;${orderNo}&quot;,&#xd;
+        &quot;payNo&quot;: &quot;${payNo}&quot;,&#xd;
+        &quot;payMoney&quot;: &quot;${skuSalePrice}&quot;&#xd;
+     }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/pay/wxpay/app/mock</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">微信APP支付-mock</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/pay/wxpay/app/mock&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="payquery" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;recordNo&quot;: &quot;${recordNo}&quot;,&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/pay/query</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">支付查询</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/pay/query&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="orderdetail" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/detail</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">订单详情接口</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/detail&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="scanOpen" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;code&quot;: &quot;${code}&quot;,&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/machine/door/scanOpen</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">扫码开门</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/machine/door/scanOpen&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="renewCheck" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/renew/check</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">续订校验</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/renew/check&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="renewOrder" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"> {&#xd;
+          &quot;parentOrderNo&quot; : &quot;${orderNo}&quot;,&#xd;
+          &quot;skuCode&quot; : &quot;${skuCode}&quot;,&#xd;
+          &quot;skuName&quot; : &quot;${skuName}&quot;,&#xd;
+          &quot;payFrom&quot; : 2,&#xd;
+          &quot;payableMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;payMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;duration&quot; : &quot;${duration}&quot;,&#xd;
+          &quot;buyAmount&quot; : &quot;${count}&quot;,&#xd;
+          &quot;originMoney&quot; : &quot;${skuBasePrice}&quot;&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/create/renew</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">续订下单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/create/renew&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="false"/>
+        <hashTree>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="false">
+            <collectionProp name="CookieManager.cookies">
+              <elementProp name="SESSION" elementType="Cookie" testname="SESSION">
+                <stringProp name="Cookie.value">${__P(SESSION)}</stringProp>
+                <stringProp name="Cookie.domain">apigwtest2.joymo.tech</stringProp>
+                <stringProp name="Cookie.path">/</stringProp>
+                <boolProp name="Cookie.secure">false</boolProp>
+                <longProp name="Cookie.expires">0</longProp>
+                <boolProp name="Cookie.path_specified">true</boolProp>
+                <boolProp name="Cookie.domain_specified">true</boolProp>
+              </elementProp>
+            </collectionProp>
+            <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+            <stringProp name="CookieManager.policy">standard</stringProp>
+            <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+          </CookieManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="cabindetailreserve" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+        &quot;sceneType&quot;: 2,&#xd;
+        &quot;code&quot;: &quot;&quot;,&#xd;
+        &quot;storeNo&quot;: &quot;${storeNo}&quot;,&#xd;
+        &quot;cabinNo&quot;: &quot;${cabinNo}&quot;&#xd;
+     }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/cabin/detail</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取仓位详情</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/cabin/detail&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取cabinNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cabinNo</stringProp>
+              <stringProp name="RegexExtractor.regex">cabinNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取storeNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">storeNo</stringProp>
+              <stringProp name="RegexExtractor.regex">storeNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取storeName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">storeName</stringProp>
+              <stringProp name="RegexExtractor.regex">storeName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取cityCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cityCode</stringProp>
+              <stringProp name="RegexExtractor.regex">cityCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取provinceCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">provinceCode</stringProp>
+              <stringProp name="RegexExtractor.regex">provinceCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取districtCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">districtCode</stringProp>
+              <stringProp name="RegexExtractor.regex">districtCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machineNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machineNo</stringProp>
+              <stringProp name="RegexExtractor.regex">machineNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取productCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">productCode</stringProp>
+              <stringProp name="RegexExtractor.regex">productCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取productName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">productName</stringProp>
+              <stringProp name="RegexExtractor.regex">productName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machinePlanDesc-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machinePlanDesc</stringProp>
+              <stringProp name="RegexExtractor.regex">machinePlanDesc&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machineTypeCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machineTypeCode</stringProp>
+              <stringProp name="RegexExtractor.regex">machineTypeCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="skulistreserve" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+      &quot;storeNo&quot;:&quot;${storeNo}&quot;,&#xd;
+      &quot;cabinNo&quot;: &quot;${cabinNo}&quot;,&#xd;
+      &quot;machineTypeCode&quot;: &quot;${machineTypeCode}&quot;,&#xd;
+      &quot;productCode&quot;: &quot;${productCode}&quot;,&#xd;
+      &quot;sceneType&quot;: 2,&#xd;
+      &quot;cityCode&quot;: &quot;${cityCode}&quot;,&#xd;
+      &quot;provinceCode&quot;: &quot;${provinceCode}&quot;,&#xd;
+      &quot;districtCode&quot;: &quot;${districtCode}&quot;,&#xd;
+      &quot;positionTypeId&quot;: 1,&#xd;
+      &quot;reservationDate&quot;: &quot;${__longSum(${__time},10800000,)} &quot;,&#xd;
+      &quot;currentOrderNo&quot;: &quot;&quot;&#xd;
+      }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/sku/list</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取商品-预约单场景</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/sku/list&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script"></stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuCode</stringProp>
+              <stringProp name="RegexExtractor.regex">skuCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuName</stringProp>
+              <stringProp name="RegexExtractor.regex">skuName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuSalePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuSalePrice&quot;:(.*?),&quot;discountMoney</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuBasePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuBasePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuBasePrice&quot;:(.*?),&quot;skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取duration-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">duration</stringProp>
+              <stringProp name="RegexExtractor.regex">duration&quot;:(.*?),&quot;count</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取count-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">count</stringProp>
+              <stringProp name="RegexExtractor.regex">count&quot;:(.*?),&quot;countUnit</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reserveOrder" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+          &quot;expectStartTime&quot;:&quot;${expectStartTime}&quot;,&#xd;
+          &quot;storeNo&quot; : &quot;${storeNo}&quot;,&#xd;
+          &quot;machineNo&quot; : &quot;${machineNo}&quot;,&#xd;
+          &quot;skuCode&quot; : &quot;${skuCode}&quot;,&#xd;
+          &quot;skuName&quot; : &quot;${skuName}&quot;,&#xd;
+          &quot;payFrom&quot; : 2,&#xd;
+          &quot;payableMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;payMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;duration&quot; : &quot;${duration}&quot;,&#xd;
+          &quot;buyAmount&quot; : &quot;${count}&quot;,&#xd;
+          &quot;machineTypeCode&quot; : &quot;${machineTypeCode}&quot;,&#xd;
+          &quot;machinePlanDesc&quot; : &quot;${machinePlanDesc}&quot;,&#xd;
+          &quot;positionTypeId&quot; : &quot;1&quot;,&#xd;
+          &quot;provinceCode&quot; : &quot;${provinceCode}&quot;,&#xd;
+          &quot;cityCode&quot; : &quot;${cityCode}&quot;,&#xd;
+          &quot;districtCode&quot; : &quot;${districtCode}&quot;,&#xd;
+          &quot;originMoney&quot; : &quot;${skuBasePrice}&quot;,&#xd;
+          &quot;programPrice&quot; : &quot;${skuBasePrice}&quot;&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/create/reserve</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">预约下单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/create/reserve&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取orderNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">reserveOrderNo</stringProp>
+              <stringProp name="RegexExtractor.regex">orderNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="获取3小时后的时间" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+try{
+    Date date =new Date();  //获取当前时间
+    SimpleDateFormat sf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+    String nowDate = sf.format(date);
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(sf.parse(nowDate));
+    cal.add(Calendar.HOUR_OF_DAY,+3);  //获取3小时后时间
+    String expectStartTime = sf.format(cal.getTime());
+    vars.put(&quot;expectStartTime&quot;,expectStartTime);
+    
+}
+catch(Exception e){
+
+}</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="cancelOrder" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">       {&#xd;
+        &quot;orderNo&quot;: &quot;${reserveOrderNo}&quot;,&#xd;
+        &quot;cancelReasonId&quot;: 1&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/cancel/now</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">取消订单接口</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/cancel/now&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </LoopController>
+        <hashTree>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="true">
+            <collectionProp name="CookieManager.cookies">
+              <elementProp name="SESSION" elementType="Cookie" testname="SESSION">
+                <stringProp name="Cookie.value">${__P(SESSION)}</stringProp>
+                <stringProp name="Cookie.domain">apigwtest2.joymo.tech</stringProp>
+                <stringProp name="Cookie.path">/</stringProp>
+                <boolProp name="Cookie.secure">false</boolProp>
+                <longProp name="Cookie.expires">0</longProp>
+                <boolProp name="Cookie.path_specified">true</boolProp>
+                <boolProp name="Cookie.domain_specified">true</boolProp>
+              </elementProp>
+            </collectionProp>
+            <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+            <stringProp name="CookieManager.policy">standard</stringProp>
+            <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+          </CookieManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="cabindetail" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;sceneType&quot;:1,&#xd;
+	&quot;code&quot;:&quot;${code}&quot;,&#xd;
+	&quot;storeNo&quot;:&quot;&quot;,&#xd;
+	&quot;cabinNo&quot;:&quot;&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/cabin/detail</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取仓位详情</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/cabin/detail&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取cabinNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cabinNo</stringProp>
+              <stringProp name="RegexExtractor.regex">cabinNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取storeNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">storeNo</stringProp>
+              <stringProp name="RegexExtractor.regex">storeNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取storeName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">storeName</stringProp>
+              <stringProp name="RegexExtractor.regex">storeName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取cityCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cityCode</stringProp>
+              <stringProp name="RegexExtractor.regex">cityCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取provinceCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">provinceCode</stringProp>
+              <stringProp name="RegexExtractor.regex">provinceCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取districtCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">districtCode</stringProp>
+              <stringProp name="RegexExtractor.regex">districtCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machineNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machineNo</stringProp>
+              <stringProp name="RegexExtractor.regex">machineNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取productCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">productCode</stringProp>
+              <stringProp name="RegexExtractor.regex">productCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取productName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">productName</stringProp>
+              <stringProp name="RegexExtractor.regex">productName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machinePlanDesc-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machinePlanDesc</stringProp>
+              <stringProp name="RegexExtractor.regex">machinePlanDesc&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machineTypeCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machineTypeCode</stringProp>
+              <stringProp name="RegexExtractor.regex">machineTypeCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="skulist" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;storeNo&quot;:&quot;${storeNo}&quot;,&#xd;
+  &quot;cabinNo&quot;: &quot;${cabinNo}&quot;,&#xd;
+  &quot;machineTypeCode&quot;: &quot;${machineTypeCode}&quot;,&#xd;
+  &quot;productCode&quot;: &quot;${productCode}&quot;,&#xd;
+  &quot;sceneType&quot;: 1,&#xd;
+  &quot;cityCode&quot;: &quot;${cityCode}&quot;,&#xd;
+  &quot;provinceCode&quot;: &quot;${provinceCode}&quot;,&#xd;
+  &quot;districtCode&quot;: &quot;${districtCode}&quot;,&#xd;
+  &quot;positionTypeId&quot;: 1,&#xd;
+  &quot;reservationDate&quot;: &quot;&quot;,&#xd;
+  &quot;currentOrderNo&quot;: &quot;&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/sku/list</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取商品</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/sku/list&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuCode</stringProp>
+              <stringProp name="RegexExtractor.regex">skuCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuName</stringProp>
+              <stringProp name="RegexExtractor.regex">skuName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuSalePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuSalePrice&quot;:(.*?),&quot;discountMoney</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuBasePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuBasePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuBasePrice&quot;:(.*?),&quot;skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取duration-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">duration</stringProp>
+              <stringProp name="RegexExtractor.regex">duration&quot;:(.*?),&quot;count</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取count-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">count</stringProp>
+              <stringProp name="RegexExtractor.regex">count&quot;:(.*?),&quot;countUnit</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createorder" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+          &quot;cabinNo&quot; : &quot;${cabinNo}&quot;,&#xd;
+          &quot;storeNo&quot; : &quot;${storeNo}&quot;,&#xd;
+          &quot;machineNo&quot; : &quot;${machineNo}&quot;,&#xd;
+          &quot;skuCode&quot; : &quot;${skuCode}&quot;,&#xd;
+          &quot;skuName&quot; : &quot;${skuName}&quot;,&#xd;
+          &quot;payFrom&quot; : 2,&#xd;
+          &quot;payableMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;payMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;duration&quot; : &quot;${duration}&quot;,&#xd;
+          &quot;buyAmount&quot; : &quot;${count}&quot;,&#xd;
+          &quot;machineTypeCode&quot; : &quot;${machineTypeCode}&quot;,&#xd;
+          &quot;machinePlanDesc&quot; : &quot;${machinePlanDesc}&quot;,&#xd;
+          &quot;positionTypeId&quot; : &quot;1&quot;,&#xd;
+          &quot;provinceCode&quot; : &quot;${provinceCode}&quot;,&#xd;
+          &quot;cityCode&quot; : &quot;${cityCode}&quot;,&#xd;
+          &quot;districtCode&quot; : &quot;${districtCode}&quot;,&#xd;
+          &quot;originMoney&quot; : &quot;${skuBasePrice}&quot;,&#xd;
+          &quot;programPrice&quot; : &quot;${skuBasePrice}&quot;&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/create/now</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">立即下单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/create/now&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取orderNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">orderNo</stringProp>
+              <stringProp name="RegexExtractor.regex">orderNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取payNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">payNo</stringProp>
+              <stringProp name="RegexExtractor.regex">payNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="wxpay" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+        &quot;orderNo&quot;: &quot;${orderNo}&quot;,&#xd;
+        &quot;payNo&quot;: &quot;${payNo}&quot;,&#xd;
+        &quot;payMoney&quot;: &quot;${skuSalePrice}&quot;&#xd;
+     }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/pay/wxpay/app/mock</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">微信APP支付-mock</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/pay/wxpay/app/mock&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="payquery" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;recordNo&quot;: &quot;${recordNo}&quot;,&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/pay/query</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">支付查询</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/pay/query&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="orderdetail" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/detail</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">订单详情接口</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/detail&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="scanOpen" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;code&quot;: &quot;${code}&quot;,&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/machine/door/scanOpen</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">扫码开门</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/machine/door/scanOpen&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="renewCheck" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+   &quot;orderNo&quot;: &quot;${orderNo}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/renew/check</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">续订校验</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/renew/check&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="renewOrder" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"> {&#xd;
+          &quot;parentOrderNo&quot; : &quot;${orderNo}&quot;,&#xd;
+          &quot;skuCode&quot; : &quot;${skuCode}&quot;,&#xd;
+          &quot;skuName&quot; : &quot;${skuName}&quot;,&#xd;
+          &quot;payFrom&quot; : 2,&#xd;
+          &quot;payableMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;payMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;duration&quot; : &quot;${duration}&quot;,&#xd;
+          &quot;buyAmount&quot; : &quot;${count}&quot;,&#xd;
+          &quot;originMoney&quot; : &quot;${skuBasePrice}&quot;&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/create/renew</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">续订下单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/create/renew&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </LoopController>
+        <hashTree>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="true">
+            <collectionProp name="CookieManager.cookies">
+              <elementProp name="SESSION" elementType="Cookie" testname="SESSION">
+                <stringProp name="Cookie.value">${__P(SESSION)}</stringProp>
+                <stringProp name="Cookie.domain">apigwtest2.joymo.tech</stringProp>
+                <stringProp name="Cookie.path">/</stringProp>
+                <boolProp name="Cookie.secure">false</boolProp>
+                <longProp name="Cookie.expires">0</longProp>
+                <boolProp name="Cookie.path_specified">true</boolProp>
+                <boolProp name="Cookie.domain_specified">true</boolProp>
+              </elementProp>
+            </collectionProp>
+            <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+            <stringProp name="CookieManager.policy">standard</stringProp>
+            <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+          </CookieManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="cabindetailreserve" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+        &quot;sceneType&quot;: 2,&#xd;
+        &quot;code&quot;: &quot;&quot;,&#xd;
+        &quot;storeNo&quot;: &quot;${storeNo}&quot;,&#xd;
+        &quot;cabinNo&quot;: &quot;${cabinNo}&quot;&#xd;
+     }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/cabin/detail</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取仓位详情</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/cabin/detail&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取cabinNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cabinNo</stringProp>
+              <stringProp name="RegexExtractor.regex">cabinNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取storeNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">storeNo</stringProp>
+              <stringProp name="RegexExtractor.regex">storeNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取storeName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">storeName</stringProp>
+              <stringProp name="RegexExtractor.regex">storeName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取cityCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cityCode</stringProp>
+              <stringProp name="RegexExtractor.regex">cityCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取provinceCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">provinceCode</stringProp>
+              <stringProp name="RegexExtractor.regex">provinceCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取districtCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">districtCode</stringProp>
+              <stringProp name="RegexExtractor.regex">districtCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machineNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machineNo</stringProp>
+              <stringProp name="RegexExtractor.regex">machineNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取productCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">productCode</stringProp>
+              <stringProp name="RegexExtractor.regex">productCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取productName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">productName</stringProp>
+              <stringProp name="RegexExtractor.regex">productName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machinePlanDesc-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machinePlanDesc</stringProp>
+              <stringProp name="RegexExtractor.regex">machinePlanDesc&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取machineTypeCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">machineTypeCode</stringProp>
+              <stringProp name="RegexExtractor.regex">machineTypeCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="skulistreserve" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+      &quot;storeNo&quot;:&quot;${storeNo}&quot;,&#xd;
+      &quot;cabinNo&quot;: &quot;${cabinNo}&quot;,&#xd;
+      &quot;machineTypeCode&quot;: &quot;${machineTypeCode}&quot;,&#xd;
+      &quot;productCode&quot;: &quot;${productCode}&quot;,&#xd;
+      &quot;sceneType&quot;: 2,&#xd;
+      &quot;cityCode&quot;: &quot;${cityCode}&quot;,&#xd;
+      &quot;provinceCode&quot;: &quot;${provinceCode}&quot;,&#xd;
+      &quot;districtCode&quot;: &quot;${districtCode}&quot;,&#xd;
+      &quot;positionTypeId&quot;: 1,&#xd;
+      &quot;reservationDate&quot;: &quot;${__longSum(${__time},10800000,)} &quot;,&#xd;
+      &quot;currentOrderNo&quot;: &quot;&quot;&#xd;
+      }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/sku/list</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">获取商品-预约单场景</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/sku/list&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script"></stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuCode-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuCode</stringProp>
+              <stringProp name="RegexExtractor.regex">skuCode&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuName-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuName</stringProp>
+              <stringProp name="RegexExtractor.regex">skuName&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuSalePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuSalePrice&quot;:(.*?),&quot;discountMoney</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取skuBasePrice-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">skuBasePrice</stringProp>
+              <stringProp name="RegexExtractor.regex">skuBasePrice&quot;:(.*?),&quot;skuSalePrice</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取duration-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">duration</stringProp>
+              <stringProp name="RegexExtractor.regex">duration&quot;:(.*?),&quot;count</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取count-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">count</stringProp>
+              <stringProp name="RegexExtractor.regex">count&quot;:(.*?),&quot;countUnit</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reserveOrder" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">      {&#xd;
+          &quot;expectStartTime&quot;:&quot;${expectStartTime}&quot;,&#xd;
+          &quot;storeNo&quot; : &quot;${storeNo}&quot;,&#xd;
+          &quot;machineNo&quot; : &quot;${machineNo}&quot;,&#xd;
+          &quot;skuCode&quot; : &quot;${skuCode}&quot;,&#xd;
+          &quot;skuName&quot; : &quot;${skuName}&quot;,&#xd;
+          &quot;payFrom&quot; : 2,&#xd;
+          &quot;payableMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;payMoney&quot; : &quot;${skuSalePrice}&quot;,&#xd;
+          &quot;duration&quot; : &quot;${duration}&quot;,&#xd;
+          &quot;buyAmount&quot; : &quot;${count}&quot;,&#xd;
+          &quot;machineTypeCode&quot; : &quot;${machineTypeCode}&quot;,&#xd;
+          &quot;machinePlanDesc&quot; : &quot;${machinePlanDesc}&quot;,&#xd;
+          &quot;positionTypeId&quot; : &quot;1&quot;,&#xd;
+          &quot;provinceCode&quot; : &quot;${provinceCode}&quot;,&#xd;
+          &quot;cityCode&quot; : &quot;${cityCode}&quot;,&#xd;
+          &quot;districtCode&quot; : &quot;${districtCode}&quot;,&#xd;
+          &quot;originMoney&quot; : &quot;${skuBasePrice}&quot;,&#xd;
+          &quot;programPrice&quot; : &quot;${skuBasePrice}&quot;&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/create/reserve</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">预约下单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/create/reserve&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取orderNo-提取器" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">reserveOrderNo</stringProp>
+              <stringProp name="RegexExtractor.regex">orderNo&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="获取3小时后的时间" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+try{
+    Date date =new Date();  //获取当前时间
+    SimpleDateFormat sf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+    String nowDate = sf.format(date);
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(sf.parse(nowDate));
+    cal.add(Calendar.HOUR_OF_DAY,+3);  //获取3小时后时间
+    String expectStartTime = sf.format(cal.getTime());
+    vars.put(&quot;expectStartTime&quot;,expectStartTime);
+    
+}
+catch(Exception e){
+
+}</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="cancelOrder" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">       {&#xd;
+        &quot;orderNo&quot;: &quot;${reserveOrderNo}&quot;,&#xd;
+        &quot;cancelReasonId&quot;: 1&#xd;
+       }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/order/cancel/now</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">取消订单接口</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/order/cancel/now&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="true"/>
+        <hashTree>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="true">
+            <collectionProp name="CookieManager.cookies">
+              <elementProp name="SESSION" elementType="Cookie" testname="SESSION">
+                <stringProp name="Cookie.value">${__P(SESSION)}</stringProp>
+                <stringProp name="Cookie.domain">apigwtest2.joymo.tech</stringProp>
+                <stringProp name="Cookie.path">/</stringProp>
+                <boolProp name="Cookie.secure">false</boolProp>
+                <longProp name="Cookie.expires">0</longProp>
+                <boolProp name="Cookie.path_specified">true</boolProp>
+                <boolProp name="Cookie.domain_specified">true</boolProp>
+              </elementProp>
+            </collectionProp>
+            <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+            <stringProp name="CookieManager.policy">standard</stringProp>
+            <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+          </CookieManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="logout" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">     {&#xd;
+          &quot;registrationId&quot; : &quot;1104a897920a5613f62&quot;,&#xd;
+          &quot;deviceNo&quot; : &quot;1104a897920a5613f62&quot;&#xd;
+    }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/capi/customer/logout</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">验证码登录</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="sign" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import tech.joymo.TestSign;
+import org.apache.jmeter.protocol.http.control.HeaderManager;
+import org.apache.jmeter.protocol.http.control.Header;
+import org.apache.jmeter.protocol.http.sampler;
+import java.util.*;
+
+//sampler 里面有个getHeaderManager 可以获得请求头
+HeaderManager headers =sampler.getHeaderManager();
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+sampler.getHeaderManager().removeHeaderNamed(&quot;sign&quot;);  
+sampler.getHeaderManager().removeHeaderNamed(&quot;timestamp&quot;); 
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());
+
+//签名拿到的sign值
+Map newSignMap = new HashMap();
+String skey = vars.get(&quot;skey&quot;);
+newSignMap = TestSign.getSoulAppSignTest(skey,&quot;/capi/customer/logout&quot;); 
+String newSign = newSignMap.get(&quot;key&quot;);
+log.info(newSign);
+String soultimestamp = newSignMap.get(&quot;timestamp&quot;);
+log.info(soultimestamp);
+// new 一个Header对象
+signHeader = new Header(&quot;sign&quot;,newSign);
+// 添加 Header 到请求头管理器
+headers.add(signHeader);
+// new 一个Header对象
+timestampHeader = new Header(&quot;timestamp&quot;,soultimestamp);
+// 添加 Header 到请求头管理器
+headers.add(timestampHeader);
+// 打印全部的头部内容
+log.info(headers.getHeaders().getStringValue());</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
