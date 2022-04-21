@@ -1,6 +1,6 @@
 image: docker:latest  # 【不用改】
 variables:
-  DEPARTMENT_CODE: bizgroup   # 组织机构【请替换】
+  DEPARTMENT_CODE: bizgroup   #组织机构【请替换】
   APPLICATION_NAME: joymo-jmeter-test  # 应用名【请替换】
   SWR_GROUP: swr.cn-north-4.myhuaweicloud.com # 集群区域=北京四 【默认】
   IMAGE_NAME: joymo-common/jmeter_slave  # 镜像名称 {部门}/{应用名}-{分支名}：{构建流水ID} 【不用改】
