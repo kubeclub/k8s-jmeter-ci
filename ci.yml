@@ -36,7 +36,7 @@ slave-docker-build:
       fi
   only:
     - develop-1
-    - slave-independent-data
+    - feature-20220421-slave-test
 
 slave-deploy:
   resource_group: slave-deploy
@@ -59,7 +59,7 @@ slave-deploy:
       fi
   only:
     - develop-1
-    - slave-independent-data
+    - feature-20220421-slave-test
 
 test-run:
   resource_group: test-run
@@ -153,5 +153,5 @@ slave-run:
     paths:
       - ${APPLICATION_NAME}-${JMX_DIR}-report.csv
   only:
-    - slave-independent-data
+    - feature-20220421-slave-test
 
