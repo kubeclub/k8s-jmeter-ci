@@ -55,6 +55,8 @@ slave-deploy:
       sed -i "s%DOCKER_IMAGE%$APPLY_IMAGE%g" etc/jmeter_slaves_deploy.yaml;
       cat etc/jmeter_slaves_deploy.yaml;
       kubectl apply -f etc/jmeter_slaves_deploy.yaml --namespace=$NAMESPCE;
+      echo "停顿10s 等待 slave 完全启动成功";
+      sleep 10s;
       else printf "no need to recreate slave pods\n";
       fi
   only:
