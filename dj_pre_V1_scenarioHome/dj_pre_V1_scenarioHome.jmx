@@ -526,9 +526,9 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">2</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration">120</stringProp>
@@ -557,8 +557,8 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${loginBySmsCode}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -654,8 +654,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${homePageGetShopDetail}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -760,8 +760,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -854,8 +854,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -948,8 +948,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1042,8 +1042,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1136,8 +1136,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1230,8 +1230,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1324,8 +1324,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1418,8 +1418,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1519,8 +1519,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1613,8 +1613,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1707,8 +1707,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${positionList}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1768,8 +1768,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${otaCheckUpdate}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1830,8 +1830,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${newItems}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1882,8 +1882,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${hotSaleItems}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1933,8 +1933,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${discountShowItems}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1994,8 +1994,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${discountAllItems}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2056,8 +2056,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${newerAreaGetNewerAreaInfo}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2121,8 +2121,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${newerAreaGetSettlePrice}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2172,8 +2172,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${pointsDetail}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -2234,8 +2234,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${cartListHot}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2320,8 +2320,8 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${cartGetShoppingCart}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2371,135 +2371,11 @@ vars.put(&quot;sign&quot;,result);</stringProp>
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">${cartMaxCount}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
-              <stringProp name="filename"></stringProp>
-              <stringProp name="parameters"></stringProp>
-              <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="script">import com.test.testMd5;
-
-//获取path
-String path = sampler.getPath();
-log.info(&quot;===path===:&quot;+path);
-
-vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
-sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
-log.info(&quot;=========================================================&quot;);
-log.info(sign_con);
-
-testMd5 tMd5 = new testMd5();
-String result = tMd5.md5Capital(sign_con);
-log.info(result);
-vars.put(&quot;sign&quot;,result);</stringProp>
-            </BeanShellPreProcessor>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="本月新菜-newItems-测试环境参数" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
-	&quot;rootMenuCodes&quot;: [&quot;13&quot;],&#xd;
-	&quot;takeFoodMode&quot;: ${__Random(1,3,)}&#xd;
-}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">${newItems}</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
-              <stringProp name="filename"></stringProp>
-              <stringProp name="parameters"></stringProp>
-              <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="script">import com.test.testMd5;
-
-//获取path
-String path = sampler.getPath();
-log.info(&quot;===path===:&quot;+path);
-
-vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
-sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
-log.info(&quot;=========================================================&quot;);
-log.info(sign_con);
-
-testMd5 tMd5 = new testMd5();
-String result = tMd5.md5Capital(sign_con);
-log.info(result);
-vars.put(&quot;sign&quot;,result);</stringProp>
-            </BeanShellPreProcessor>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="热销爆款-hotSaleItems-测试环境参数" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
-	&quot;rootMenuCodes&quot;: [&quot;12&quot;],&#xd;
-	&quot;takeFoodMode&quot;: ${__Random(1,3,)}&#xd;
-}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
-            <stringProp name="HTTPSampler.port">80</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">${hotSaleItems}</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
