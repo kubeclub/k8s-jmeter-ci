@@ -689,7 +689,7 @@ log.info(result);
 vars.put(&quot;sign&quot;,result);</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="lbs" enabled="true">
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="lbs" enabled="false">
               <stringProp name="filename">/lbs.csv</stringProp>
               <stringProp name="fileEncoding">UTF-8</stringProp>
               <stringProp name="variableNames">lon,lat</stringProp>
