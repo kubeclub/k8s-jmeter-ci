@@ -4,6 +4,10 @@ metadata:
   name: jmeter-slaves
   labels:
     jmeter_mode: slave
+    app: jmeter-slaves
+    grayLabel: main
+    cdPipelineName: jmeter-slaves-main
+    cmdbServiceName: jmeter-slaves
 spec:
   replicas: 2 
   selector:
