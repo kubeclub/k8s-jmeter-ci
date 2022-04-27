@@ -49,7 +49,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -522,7 +522,7 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="到家APP-首页加载" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="到家APP-首页加载" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -2425,6 +2425,1856 @@ vars.put(&quot;sign&quot;,result);</stringProp>
         <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
       </BackendListener>
       <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="到家APP-首页加载" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">600</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="false"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录-loginBySmsCode" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;mobile&quot;: &quot;${mobile}&quot;,&#xd;
+    &quot;smsCode&quot;: &quot;168168&quot;,&#xd;
+    &quot;deviceType&quot;:&quot;2&quot;,&#xd;
+    &quot;deviceName&quot;:&quot;&quot;,&#xd;
+    &quot;deviceNo&quot;:&quot;&quot;,&#xd;
+    &quot;registrationId&quot;:&quot;1104a8979267121b703&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${loginBySmsCode}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="mobile" enabled="true">
+              <stringProp name="TestPlan.comments">111号段500用户</stringProp>
+              <stringProp name="filename">/mobile.csv</stringProp>
+              <stringProp name="fileEncoding"></stringProp>
+              <stringProp name="variableNames">mobile</stringProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <stringProp name="delimiter">,</stringProp>
+              <boolProp name="quotedData">false</boolProp>
+              <boolProp name="recycle">true</boolProp>
+              <boolProp name="stopThread">false</boolProp>
+              <stringProp name="shareMode">shareMode.all</stringProp>
+            </CSVDataSet>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则提取token" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">token</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;token&quot;.&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">null</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="设置token为全局变量" enabled="true">
+            <stringProp name="BeanShellSampler.query">${__setProperty(token,${token},)}</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="首页获取门店定位-homePageGetShopDetail" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)},&#xd;
+	&quot;customerLongitude&quot;: ${lon},&#xd;
+	&quot;customerLatitude&quot;: ${lat}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${homePageGetShopDetail}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="lbs" enabled="true">
+              <stringProp name="filename">/lbs.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="variableNames">lon,lat</stringProp>
+              <boolProp name="ignoreFirstLine">true</boolProp>
+              <stringProp name="delimiter">,</stringProp>
+              <boolProp name="quotedData">false</boolProp>
+              <boolProp name="recycle">true</boolProp>
+              <boolProp name="stopThread">false</boolProp>
+              <stringProp name="shareMode">shareMode.all</stringProp>
+            </CSVDataSet>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-顶部资源位" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-head-5</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-顶部品牌亮点" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-head-2</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-顶部金刚区1" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-JinGang-1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-顶部金刚区2" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-JinGang-2-style1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-栏目1" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-column-003</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-栏目2" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-column-004</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-腰部广告位" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-middle-3</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页-新人专区-顶部资源位" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-newcomers-head-1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">sjgf-app-home</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取广告位-positionList-首页底部-我要开业--【常规】1个入口" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="code" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">Ad-sjgf-home-bottom-style2</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">code</stringProp>
+                </elementProp>
+                <elementProp name="memberId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">memberId</stringProp>
+                </elementProp>
+                <elementProp name="sessionId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">sessionId</stringProp>
+                </elementProp>
+                <elementProp name="viewPage" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">viewPage</stringProp>
+                </elementProp>
+                <elementProp name="cityMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">cityMdCode</stringProp>
+                </elementProp>
+                <elementProp name="shopMdCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">shopMdCode</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${positionList}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="app监测是否升级-otaCheckUpdate" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;currentVersion&quot;: 202,&#xd;
+	&quot;appChannel&quot;: ${__Random(401,402,)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${otaCheckUpdate}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="本月新菜-newItems" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+	&quot;rootMenuCodes&quot;: [&quot;hot#quickCooking&quot;],&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${newItems}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="热销爆款-hotSaleItems" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+	&quot;rootMenuCodes&quot;: [&quot;hot#preProductionFoodTop&quot;],&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${hotSaleItems}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="首页特惠专区展示列表-discountShowItems" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${discountShowItems}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="特惠页面商品分组列表-discountAllItems" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: &quot;${shopMdCode}&quot;,&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${discountAllItems}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取用户新人专区信息-newerAreaGetNewerAreaInfo" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: ${shopMdCode},&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)},&#xd;
+	&quot;isQueryAllGoods&quot;: 0&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${newerAreaGetNewerAreaInfo}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取用户新人结算算价-newerAreaGetSettlePrice" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: ${shopMdCode},&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)},&#xd;
+	&quot;goodsList&quot;: [{&#xd;
+		&quot;spuCode&quot;: &quot;SP1019&quot;,&#xd;
+		&quot;count&quot;: 1&#xd;
+	}]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${newerAreaGetSettlePrice}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="积分详情-pointsDetail" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${pointsDetail}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="大家都在买购物车页面推荐-cartListHot" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;shopMdCode&quot;: ${shopMdCode},&#xd;
+	&quot;takeFoodMode&quot;: ${__Random(1,3,)},&#xd;
+	&quot;itemNos&quot;: [&quot;SP1082&quot;, &quot;SP1030&quot;, &quot;SP1019&quot;, &quot;SP1083&quot;, &quot;SP1003&quot;, &quot;SP1009&quot;, &quot;SP1045&quot;, &quot;SP1085&quot;]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${cartListHot}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询购物车列表-cartGetShoppingCart" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;cartGoodsItemList&quot;: [{&#xd;
+		&quot;itemNo&quot;: &quot;SP1082&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 1,&#xd;
+		&quot;addCartTime&quot;: 1650190118081&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1030&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1650190174883&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1019&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 1,&#xd;
+		&quot;addCartTime&quot;: 1651065632427&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1083&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065637427&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1003&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065640376&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1009&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065642444&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1045&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065644661&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1085&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065649877&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1005&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065672246&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1064&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065673745&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1008&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065693947&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1011&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065700282&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1016&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065704497&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1012&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065708135&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1041&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065720698&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1038&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065723364&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1207&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065730916&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1080&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 1,&#xd;
+		&quot;addCartTime&quot;: 1651065763967&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1217&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 1,&#xd;
+		&quot;addCartTime&quot;: 1651065769984&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1078&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 1,&#xd;
+		&quot;addCartTime&quot;: 1651065777286&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1079&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065784318&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1017&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065833355&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1015&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065837223&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1044&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651065857240&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1094&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651066351414&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1266&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651067473716&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1267&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651067474583&#xd;
+	}, {&#xd;
+		&quot;itemNo&quot;: &quot;SP1264&quot;,&#xd;
+		&quot;skuId&quot;: null,&#xd;
+		&quot;buyNum&quot;: 1,&#xd;
+		&quot;selectedStatus&quot;: 0,&#xd;
+		&quot;addCartTime&quot;: 1651067477450&#xd;
+	}],&#xd;
+	&quot;shopId&quot;: ${shopMdCode},&#xd;
+	&quot;shopMdCode&quot;: ${shopMdCode},&#xd;
+	&quot;tookFoodMode&quot;: 1,&#xd;
+	&quot;operateType&quot;: 1,&#xd;
+	&quot;longitude&quot;: ${lon},&#xd;
+	&quot;latitude&quot;: ${lat}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${cartGetShoppingCart}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="购物车整体数量上限-cartMaxCount" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${gateway}</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">${cartMaxCount}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="验签鉴权" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import com.test.testMd5;
+
+//获取path
+String path = sampler.getPath();
+log.info(&quot;===path===:&quot;+path);
+
+vars.put(&quot;timestamp&quot;,&quot;${__time(,)}&quot;);
+sign_con = vars.get(&quot;path&quot;)+path+vars.get(&quot;timestamp1&quot;)+vars.get(&quot;timestamp&quot;)+vars.get(&quot;version1&quot;)+vars.get(&quot;version&quot;)+vars.get(&quot;signKey&quot;);
+log.info(&quot;=========================================================&quot;);
+log.info(sign_con);
+
+testMd5 tMd5 = new testMd5();
+String result = tMd5.md5Capital(sign_con);
+log.info(result);
+vars.put(&quot;sign&quot;,result);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2135767392">&quot;busMessage&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
