@@ -582,7 +582,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
             <hashTree/>
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="mobile" enabled="true">
               <stringProp name="TestPlan.comments">111号段500用户</stringProp>
-              <stringProp name="filename">/mobile-homePage.csv</stringProp>
+              <stringProp name="filename">/mobile.csv</stringProp>
               <stringProp name="fileEncoding"></stringProp>
               <stringProp name="variableNames">mobile</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
