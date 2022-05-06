@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="产品rpc接口" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="shopMdCode" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding">UTF-8</stringProp>
+        <stringProp name="filename">/shopMdCode.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">shopMdCode</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="terminal" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding">UTF-8</stringProp>
+        <stringProp name="filename">/terminal.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">terminal</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MenuV2Facade" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">180</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="queryMenuV210" enabled="true">
+          <stringProp name="TestPlan.comments">菜单查询</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.MenuV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">queryMenuV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.MenuV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;shopMdCode&quot;:${shopMdCode},&quot;businessType&quot;:${__Random(1,3,)},&quot;terminal&quot;:&quot;${terminal}&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="rootMenuItemV210" enabled="false">
+          <stringProp name="TestPlan.comments">一级菜单商品查询</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.MenuV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">rootMenuItemV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.RootMenuItemV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;shopMdCode&quot;:${shopMdCode},&quot;rootMenuCodes&quot;:[&quot;newDishes&quot;,&quot;hotProduct&quot;],&quot;subMenuCodes&quot;:[],&quot;businessType&quot;:${__Random(1,3,)},&quot;terminal&quot;:&quot;${terminal}&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ProductSpecialV2Facade" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="specialItemsV210" enabled="true">
+          <stringProp name="TestPlan.comments">特价专区查询列表营销特价工具</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductSpecialV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">specialItemsV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.SpecialItemsV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;shopMdCode&quot;:20300002284,&quot;businessType&quot;:1,&quot;terminal&quot;:&quot;APP&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ProductStockV2Facade" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="shopProdZeroStock" enabled="true">
+          <stringProp name="TestPlan.comments">特价专区查询列表营销特价工具</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductStockV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">shopProdZeroStock</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ShopProdZeroStockParam</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;shopMdCodeList&quot;:[20300002622]}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ProductV2Facade" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="itemSearchV210" enabled="false">
+          <stringProp name="TestPlan.comments">商品搜索-自研ES搜索-数据有延迟</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">itemSearchV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ItemSearchV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;itemName&quot;:&quot;水溶c&quot;,&quot;pageNum&quot;:1,&quot;pageSize&quot;:20,&quot;shopMdCode&quot;:20300001499,&quot;styleLabel&quot;:&quot;&quot;,&quot;businessType&quot;:1,&quot;terminal&quot;:APP}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="itemSearchByNoV210" enabled="false">
+          <stringProp name="TestPlan.comments">商品编码查询商品-自研专用于查询spu列表查询不走es1.若itemNo查询不到不返回， 2.返回所有skuList包含 可售 停售 库存为0等</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">itemSearchByNoV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ItemSearchByNov2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;businessType&quot;:3,&quot;itemNos&quot;:[&quot;SP1151&quot;],&quot;shopMdCode&quot;:20300002637,&quot;terminal&quot;:&quot;APP&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="hotItemWithLabelV210" enabled="false">
+          <stringProp name="TestPlan.comments">热搜商品+标签-自研</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">hotItemWithLabelV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.HotItemWithLabelV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;businessType&quot;:&quot;3&quot;,&quot;shopMdCode&quot;:20300002637,&quot;terminal&quot;:&quot;APP&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="itemDetailV210" enabled="false">
+          <stringProp name="TestPlan.comments">商品详情-自研</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">itemDetailV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ItemDetailV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;businessType&quot;:3,&quot;itemNo&quot;:&quot;SP1151&quot;,&quot;shopMdCode&quot;:20300002637,&quot;terminal&quot;:&quot;APP&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="itemSearchByRosV210" enabled="false">
+          <stringProp name="TestPlan.comments">商品详情-自研</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">itemSearchByRosV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ItemSearchRosV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;businessTypes&quot;:[1],&quot;shopMdCode&quot;:20300002623,&quot;skuCodeList&quot;:[&quot;SP1166-00002&quot;,&quot;SP1131-00000&quot;,&quot;SP1218-00003&quot;,&quot;SP1218-00002&quot;,&quot;SP1218-00001&quot;,&quot;SP1173-00004&quot;,&quot;SP1186-00003&quot;,&quot;SP1186-00002&quot;,&quot;SP1186-00001&quot;,&quot;SP0566-00001&quot;]}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="itemSearchBySkuV210" enabled="false">
+          <stringProp name="TestPlan.comments">根据门店和sku信息查询商品信息- 专用于查询sku 加入购物车 确认订单列表 大家都在买</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">itemSearchBySkuV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ItemSearchBySkuV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;businessType&quot;:1,&quot;shopMdCode&quot;:20300001499,&quot;skuCodes&quot;:[&quot;SP1103-00001&quot;,&quot;SP1049-00000&quot;],&quot;terminal&quot;:&quot;APP&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="shopItemsV210" enabled="false">
+          <stringProp name="TestPlan.comments">查询门店在售商品列表</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">shopItemsV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ShopItemsV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;businessType&quot;:1,&quot;shopMdCode&quot;:20300002624,&quot;terminal&quot;:&quot;APP&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+        <io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample guiclass="io.github.ningyu.jmeter.plugin.dubbo.gui.DubboSampleGui" testclass="io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample" testname="itemCookV210" enabled="false">
+          <stringProp name="TestPlan.comments">商品烹饪做法-自研</stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PROTOCOL"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_GROUP"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_NAMESPACE"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_ADDRESS"></stringProp>
+          <stringProp name="FIELD_DUBBO_CONFIG_CENTER_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PROTOCOL">zookeeper</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_USER_NAME"></stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_PASSWORD"></stringProp>
+          <stringProp name="FIELD_DUBBO_ADDRESS">zk1test1.yummy.tech:5181</stringProp>
+          <stringProp name="FIELD_DUBBO_REGISTRY_TIMEOUT"></stringProp>
+          <stringProp name="FIELD_DUBBO_RPC_PROTOCOL">dubbo://</stringProp>
+          <stringProp name="FIELD_DUBBO_TIMEOUT">3000</stringProp>
+          <stringProp name="FIELD_DUBBO_VERSION">1.0.0</stringProp>
+          <stringProp name="FIELD_DUBBO_RETRIES">0</stringProp>
+          <stringProp name="FIELD_DUBBO_GROUP">dubbo</stringProp>
+          <stringProp name="FIELD_DUBBO_CONNECTIONS">100</stringProp>
+          <stringProp name="FIELD_DUBBO_LOADBALANCE">random</stringProp>
+          <stringProp name="FIELD_DUBBO_ASYNC">sync</stringProp>
+          <stringProp name="FIELD_DUBBO_CLUSTER">failfast</stringProp>
+          <stringProp name="FIELD_DUBBO_INTERFACE">com.abite.dj.product.api.v2.facade.ProductV2Facade</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD">itemCookV210</stringProp>
+          <intProp name="FIELD_DUBBO_METHOD_ARGS_SIZE">1</intProp>
+          <intProp name="FIELD_DUBBO_ATTACHMENT_ARGS_SIZE">0</intProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_TYPE1">com.abite.dj.product.api.v2.param.ItemCookV2Param</stringProp>
+          <stringProp name="FIELD_DUBBO_METHOD_ARGS_PARAM_VALUE1">{&quot;itemNo&quot;:&quot;SP1105&quot;}</stringProp>
+        </io.github.ningyu.jmeter.plugin.dubbo.sample.DubboSample>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="汇总报告" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
